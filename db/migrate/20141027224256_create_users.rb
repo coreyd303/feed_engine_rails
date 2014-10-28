@@ -6,9 +6,10 @@ class CreateUsers < ActiveRecord::Migration
       t.string   :email
       t.string   :password_digest
       t.string   :instagram_username
+      t.integer  :instagram_id
       t.string   :twitter_username
-      t.string   :epic_username
-      t.string   :epic_password
+      t.string   :epic_mix_username
+      t.string   :epic_mix_password
       t.timestamps
     end
   end
