@@ -7,7 +7,7 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'active_model_serializers'
 gem 'instagram'
 gem 'figaro'
-
+gem 'sidekiq'
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.0.0'
