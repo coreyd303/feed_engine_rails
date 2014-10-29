@@ -1,6 +1,9 @@
-class EventsController < ApplicationController
+class Api::V1::EventsController < ApplicationController
+  respond_to :json
+  
   def show
     @event = Event.find(params[:id])
+    respond_with :json => @event
   end
 
   def create
