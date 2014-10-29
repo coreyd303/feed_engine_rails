@@ -1,5 +1,5 @@
 class InstaMostRecentPost
-  include SideKiq::Worker
+#  include Sidekiq::Worker
 
   def perform(user_instagram_id)
     client.user_recent_media(user_instagram_id).first
