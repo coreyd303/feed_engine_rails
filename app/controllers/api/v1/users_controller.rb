@@ -1,6 +1,9 @@
-class API::V1::UsersController < ApplicationController
+class Api::V1::UsersController < ApplicationController
+  respond_to :json
+
   def show
     @user = User.find(params[:id])
+    respond_with :json => @user
   end
 
   def create
