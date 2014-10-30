@@ -8,16 +8,19 @@ class Api::V1::UsersController < ApplicationController
 
   def create
     @user = User.create(safe_params)
+    render :json => @user
   end
 
   def update
     @user = User.find(params[:id])
     @user.update(safe_params)
+    render :json => @user
   end
 
   def destroy
     @user = User.find(params[:id])
     @user.destroy
+    head :ok
   end
 
   private

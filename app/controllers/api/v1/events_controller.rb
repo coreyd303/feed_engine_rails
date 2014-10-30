@@ -14,11 +14,13 @@ class Api::V1::EventsController < ApplicationController
   def update
     @event = Event.find(params[:id])
     @event.update(safe_params)
+    render :json => @event
   end
 
   def destroy
     @event = Event.find(params[:id])
     @event.destroy
+    head :ok
   end
 
   def safe_params 
