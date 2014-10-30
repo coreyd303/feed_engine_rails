@@ -4,6 +4,7 @@ namespace :api do
   namespace :v1 do
     resources :events, except: [:new, :index]
     resources :users, except: [:new, :index]
+    resources :groups, except: [:new, :index]
   end
 end
 
