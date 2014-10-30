@@ -47,14 +47,14 @@ class Seed
     users = User.all
     users << User.first(20)
     users.each do |user|
-      Group.limit(1).order("RANDOM()").users << user
+      Group.limit(1).order("RANDOM()")[0].users << user
     end 
   end
 
   def add_events_to_groups
     events = Event.all
     events.each do |event|
-      Group.limit(1).order("RANDOM()").events << event
+      Group.limit(1).order("RANDOM()")[0].events << event
     end
   end
 end
