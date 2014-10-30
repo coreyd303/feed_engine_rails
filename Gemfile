@@ -5,6 +5,9 @@ gem 'pg'
 # gem 'therubyracer',  platforms: :ruby
 gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'active_model_serializers'
+gem 'omniauth-twitter'
+gem 'figaro'
+gem 'pry'
 
 
 group :development, :test do
