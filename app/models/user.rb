@@ -1,4 +1,4 @@
 class User < ActiveRecord::Base
   has_and_belongs_to_many :groups
-  has_many :events, through: :group
+  has_many :trips, through: :group
 end

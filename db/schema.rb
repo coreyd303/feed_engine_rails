@@ -16,17 +16,6 @@ ActiveRecord::Schema.define(version: 20141030061952) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "events", force: true do |t|
-    t.string   "name"
-    t.text     "description"
-    t.integer  "group_id"
-    t.datetime "start_time"
-    t.datetime "end_time"
-    t.string   "location"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "groups", force: true do |t|
     t.string   "name"
     t.text     "description"
@@ -37,6 +26,17 @@ ActiveRecord::Schema.define(version: 20141030061952) do
   create_table "groups_users", id: false, force: true do |t|
     t.integer "group_id"
     t.integer "user_id"
+  end
+
+  create_table "trips", force: true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.integer  "group_id"
+    t.datetime "start_time"
+    t.datetime "end_time"
+    t.string   "location"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "users", force: true do |t|
