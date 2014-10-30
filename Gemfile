@@ -11,6 +11,7 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.0.0'
   gem 'spring'
   gem 'pry'
+  gem 'faker'
 end
 
 group :test do
