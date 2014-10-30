@@ -15,9 +15,10 @@ describe 'Events API' do
     json = event.to_json
     count = Event.count
     
-    post "/api/v1/events.json", event: json
+    post "/api/v1/events.json", json, {'CONTENT_TYPE' => "application/json", 'ACCEPT' => 'application/json'}
     
     expect(Event.count).to eq(count + 1)
-
+    
+    expect(response).to be_success
   end
 end

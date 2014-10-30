@@ -7,7 +7,8 @@ class Api::V1::EventsController < ApplicationController
   end
 
   def create
-    @event = Event.create(safe_params)
+    @event = Event.create!(safe_params)
+    render :json => @event
   end
 
   def update
@@ -21,7 +22,6 @@ class Api::V1::EventsController < ApplicationController
   end
 
   def safe_params 
-    params = JSON.parse(params)
     params.require(:event).permit(:name, :description, :group_id, :start_time, :end_time, :location)
   end
 end
