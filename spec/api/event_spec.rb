@@ -9,4 +9,15 @@ describe 'Events API' do
 
     expect(json['name']).to eq(event.name)
   end
+
+  xit "can create an event" do
+    event = build(:event)
+    json = event.to_json
+    count = Event.count
+    
+    post "/api/v1/events.json", json
+    
+    expect(Event.count).to eq(count + 1)
+
+  end
 end
