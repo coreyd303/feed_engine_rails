@@ -22,4 +22,13 @@ describe 'Group API' do
     expect(json['group']['name']).to eq('Breck Boarders')
   end
 
+  it 'creates a new group' do
+    post '/api/v1/groups.json', group: { name: 'Breck Boarders' }
+
+    expect(response).to be_success
+
+    group = Group.last
+    expect(group.name).to eq('Breck Boarders')
+  end
+
 end
