@@ -1,4 +1,13 @@
 Rails.application.routes.draw do
+
+namespace :api do
+  namespace :v1 do
+    resources :trips, except: [:new, :index]
+    resources :users, except: [:new, :index]
+    resources :groups, except: [:new, :index]
+  end
+end
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
