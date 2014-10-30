@@ -1,5 +1,10 @@
 class Api::V1::GroupsController < ApplicationController
   respond_to :json
+
+  def index
+    @groups = Group.all
+    respond_with :json => @groups
+  end
   
   def show
     @group = Group.find(params[:id])
@@ -23,7 +28,7 @@ class Api::V1::GroupsController < ApplicationController
     head :ok
   end
 
-  def safe_params 
+  def safe_params
     params.require(:group).permit(:name, :description)
   end
 end

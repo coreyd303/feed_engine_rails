@@ -4,7 +4,7 @@ namespace :api do
   namespace :v1 do
     resources :trips, except: [:new, :index]
     resources :users, except: [:new, :index]
-    resources :groups, except: [:new, :index]
+    resources :groups, except: [:new]
   end
 end
 
