@@ -1,9 +1,9 @@
 class Api::V1::TripsController < ApplicationController
   respond_to :json
-  
+
   def show
-    @trip = Trip.find(params[:id])
-    respond_with :json => @trip
+    # @trip = Trip.find(params[:id])
+    respond_with Trip.find(params[:id])
   end
 
   def create
@@ -23,7 +23,7 @@ class Api::V1::TripsController < ApplicationController
     head :ok
   end
 
-  def safe_params 
+  def safe_params
     params.require(:trip).permit(:name, :description, :group_id, :start_time, :end_time, :location)
   end
 end

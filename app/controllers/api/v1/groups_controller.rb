@@ -2,13 +2,15 @@ class Api::V1::GroupsController < ApplicationController
   respond_to :json
 
   def index
-    @groups = Group.all
-    respond_with :json => @groups
+    # groups = Group.all
+    respond_with Group.all
+    # respond_with Trip.all
   end
-  
+
   def show
-    @group = Group.find(params[:id])
-    respond_with :json => @group
+    # @group = Group.find(params[:id])
+    respond_with Group.find(params[:id])
+    # respond_with Item.find(params[:id])
   end
 
   def create

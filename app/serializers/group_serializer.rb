@@ -1,3 +1,6 @@
 class GroupSerializer < ActiveModel::Serializer
-    attributes :id, :name
+  embed :ids, include: true
+
+  attributes :id, :name, :description
+  has_many :trips
 end
