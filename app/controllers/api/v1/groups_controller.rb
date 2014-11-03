@@ -13,13 +13,13 @@ class Api::V1::GroupsController < ApplicationController
 
   def create
     @group = Group.create(safe_params)
-    render @group
+    head :ok
   end
 
   def update
     @group = Group.find(params[:id])
     @group.update(safe_params)
-    render @group
+    head :ok
   end
 
   def destroy
