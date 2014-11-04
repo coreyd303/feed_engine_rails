@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141030061952) do
+ActiveRecord::Schema.define(version: 20141104012551) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,6 +26,16 @@ ActiveRecord::Schema.define(version: 20141030061952) do
   create_table "groups_users", id: false, force: true do |t|
     t.integer "group_id"
     t.integer "user_id"
+  end
+
+  create_table "insta", force: true do |t|
+    t.integer  "insta_id"
+    t.integer  "user_id"
+    t.string   "insta_url"
+    t.string   "thumbnail_url"
+    t.string   "full_size_url"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "trips", force: true do |t|
