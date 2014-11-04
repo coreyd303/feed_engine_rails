@@ -1,6 +1,10 @@
 class Api::V1::TripsController < ApplicationController
   respond_to :json
 
+  def index
+    respond_with Trip.all
+  end
+
   def show
     # @trip = Trip.find(params[:id])
     respond_with Trip.find(params[:id])

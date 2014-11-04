@@ -2,9 +2,9 @@ Rails.application.routes.draw do
 
 namespace :api do
   namespace :v1 do
-    resources :trips, except: [:new, :index]
-    resources :users, except: [:new, :index]
-    resources :groups, except: [:new]
+    resources :trips
+    resources :users
+    resources :groups
   end
 end
 
