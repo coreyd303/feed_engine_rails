@@ -3,23 +3,23 @@ class Api::V1::GroupsController < ApplicationController
 
   def index
     @groups = Group.all
-    respond_with :json => @groups
+    respond_with @groups
   end
   
   def show
     @group = Group.find(params[:id])
-    respond_with :json => @group
+    respond_with @group
   end
 
   def create
     @group = Group.create(safe_params)
-    render :json => @trip
+    head :ok
   end
 
   def update
     @group = Group.find(params[:id])
     @group.update(safe_params)
-    render :json => @trip
+    head :ok
   end
 
   def destroy
