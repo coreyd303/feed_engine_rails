@@ -6,26 +6,27 @@ class Api::V1::TripsController < ApplicationController
   end
 
   def show
-    # @trip = Trip.find(params[:id])
     respond_with Trip.find(params[:id])
   end
 
   def create
-    @trip = Trip.create!(safe_params)
-    render :json => @trip
+    Trip.create!(safe_params)
+    head :ok
   end
 
   def update
-    @trip = Trip.find(params[:id])
-    @trip.update(safe_params)
-    render :json => @trip
+    trip = Trip.find(params[:id])
+    trip.update(safe_params)
+    head :ok
   end
 
   def destroy
-    @trip = Trip.find(params[:id])
-    @trip.destroy
+    trip = Trip.find(params[:id])
+    trip.destroy
     head :ok
   end
+
+private
 
   def safe_params
     params.require(:trip).permit(:name, :description, :group_id, :start_time, :end_time, :location)
