@@ -34,11 +34,10 @@ class Seed
   def generate_trips
     trips_count.times do |i|
       trip = Trip.create(name: Faker::Company.name,
-                           description: Faker::Lorem.sentences.join,
-                           start_time: Faker::Time.forward(rand(0..50), :morning),
-                           end_time: Faker::Time.forward(rand(0..50), :evening),
-                           location: "Breckenridge"
-                           )
+                         description: Faker::Lorem.sentences.join,
+                         date: Faker::Time.forward(rand(0..50), :morning),
+                         location: "Breckenridge"
+                         )
     end
     puts "#{trips_count} Trips created"
   end
