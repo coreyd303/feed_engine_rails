@@ -28,8 +28,16 @@ class Api::V1::UsersController < ApplicationController
 private
 
   def safe_params
-    params.require(:user).permit(:first_name, :last_name, :email, :instagram_username,
-                                 :instagram_id, :twitter_username, :epic_mix_username, 
-                                 :epic_mix_password)
+    params.require(:user).permit(:name,
+                                 :email,
+                                 :instagram_username,
+                                 :instagram_id, 
+                                 :twitter_username, 
+                                 :epic_mix_username, 
+                                 :epic_mix_password,
+                                 :provider,
+                                 :uid,
+                                 :image
+                                )
   end
 end

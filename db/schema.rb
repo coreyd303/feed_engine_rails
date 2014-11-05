@@ -40,8 +40,7 @@ ActiveRecord::Schema.define(version: 20141030061952) do
   end
 
   create_table "users", force: true do |t|
-    t.string   "first_name"
-    t.string   "last_name"
+    t.string   "name"
     t.string   "email"
     t.string   "password_digest"
     t.string   "instagram_username"
@@ -49,6 +48,9 @@ ActiveRecord::Schema.define(version: 20141030061952) do
     t.string   "twitter_username"
     t.string   "epic_mix_username"
     t.string   "epic_mix_password"
+    t.string   "image"
+    t.string   "uid"
+    t.string   "provider"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

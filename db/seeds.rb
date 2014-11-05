@@ -14,8 +14,7 @@ class Seed
 
   def generate_users
     users_count.times do |i|
-      user = User.create(first_name: Faker::Name.first_name,
-                         last_name: Faker::Name.last_name,
+      user = User.create(name: Faker::Name.name,
                          email: Faker::Internet.email
                          )
     end
