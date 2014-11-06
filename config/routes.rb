@@ -4,6 +4,8 @@ Rails.application.routes.draw do
 
   resources :sessions
 
+  root 'static_pages_controller#index'
+
 namespace :api do
   namespace :v1 do
     resources :trips
