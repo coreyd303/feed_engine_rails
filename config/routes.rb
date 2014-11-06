@@ -8,7 +8,6 @@ namespace :api do
   namespace :v1 do
     resources :trips
     resources :users
-    resources :groups
   end
 end
 

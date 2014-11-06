@@ -1,3 +1,10 @@
 class TripsSerializer < ActiveModel::Serializer
-  attributes :id, :name, :description, :trip_location, :date
+  embed :ids, include: true
+
+  attributes :id,
+             :name,
+             :description,
+             :trip_location,
+             :date
+  has_many :users
 end
