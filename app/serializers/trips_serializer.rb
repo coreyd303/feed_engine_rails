@@ -1,3 +1,3 @@
 class TripsSerializer < ActiveModel::Serializer
-  attributes :id, :name, :description, :location, :date
+  attributes :id, :name, :description, :trip_location, :date
 end
