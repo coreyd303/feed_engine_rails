@@ -5,6 +5,10 @@ gem 'pg'
 # gem 'therubyracer',  platforms: :ruby
 gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'active_model_serializers'
+gem 'instagram'
+gem 'figaro'
+gem 'sidekiq'
+gem 'omniauth-twitter'
 
 
 group :development, :test do

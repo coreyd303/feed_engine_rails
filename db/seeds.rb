@@ -1,63 +1,44 @@
 class Seed
-  attr_reader :users_count, :groups_count, :trips_count
+  attr_reader :users_count, :trips_count, :users_per_trip
 
-  def initialize(users_count = 100, groups_count = 10, trips_count = 50)
-    @users_count = users_count
-    @groups_count = groups_count
-    @trips_count = trips_count
+  def initialize(users_count = 100, trips_count = 50, users_per_trip = 5)
+    @users_count    = users_count
+    @trips_count    = trips_count
+    @users_per_trip = users_per_trip
     generate_users
-    generate_groups
     generate_trips
-    add_users_to_groups
-    add_trips_to_groups
+    add_users_to_trips
   end
 
   def generate_users
     users_count.times do |i|
-      user = User.create(first_name: Faker::Name.first_name,
-                         last_name: Faker::Name.last_name,
+      user = User.create(name: "#{Faker::Name.first_name} #{Faker::Name.last_name}",
                          email: Faker::Internet.email
-                         )
+                        )
     end
-      puts "#{users_count} users created"
-  end
-
-  def generate_groups
-    groups_count.times do |i|
-      group = Group.create(name: Faker::Company.name,
-                           description: Faker::Lorem.sentences.join
-                           )
-      end
-    puts "#{groups_count} Groups created"
+    puts "#{users_count} users created"
   end
 
   def generate_trips
     trips_count.times do |i|
       trip = Trip.create(name: Faker::Company.name,
-                           description: Faker::Lorem.sentences.join,
-                           start_time: Faker::Time.forward(rand(0..50), :morning),
-                           end_time: Faker::Time.forward(rand(0..50), :evening),
-                           location: "Breckenridge"
-                           )
+                         description: Faker::Lorem.sentences.join,
+                         date: Faker::Time.forward(rand(0..50), :morning),
+                         location: "Breckenridge"
+                        )
     end
     puts "#{trips_count} Trips created"
   end
 
-  def add_users_to_groups
-    users = User.all
-    users << User.first(20)
-    users.each do |user|
-      group = Group.find(rand(1..Group.count))
-      group.users << user
-    end 
-  end
-
-  def add_trips_to_groups
-    trips = Trip.all
-    trips.each do |trip|
-      group = Group.find(rand(1..Group.count))
-      group.trips << trip
+  def add_users_to_trips
+    users = User.all.length
+    Trip.all.each do |trip|
+      users_per_trip.times do
+        user = User.find(rand(1..users))
+        trip.users << user
+      end
     end
+    puts "#{users_per_trip} users added to each trip"
   end
 end
 

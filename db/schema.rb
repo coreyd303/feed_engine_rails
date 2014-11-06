@@ -11,37 +11,38 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141030061952) do
+ActiveRecord::Schema.define(version: 20141106060250) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "groups", force: true do |t|
-    t.string   "name"
-    t.text     "description"
+  create_table "insta", force: true do |t|
+    t.integer  "insta_id"
+    t.integer  "user_id"
+    t.string   "insta_url"
+    t.string   "thumbnail_url"
+    t.string   "full_size_url"
     t.datetime "created_at"
     t.datetime "updated_at"
-  end
-
-  create_table "groups_users", id: false, force: true do |t|
-    t.integer "group_id"
-    t.integer "user_id"
   end
 
   create_table "trips", force: true do |t|
     t.string   "name"
     t.text     "description"
     t.integer  "group_id"
-    t.datetime "start_time"
-    t.datetime "end_time"
+    t.datetime "date"
     t.string   "location"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
+  create_table "trips_users", id: false, force: true do |t|
+    t.integer "trip_id"
+    t.integer "user_id"
+  end
+
   create_table "users", force: true do |t|
-    t.string   "first_name"
-    t.string   "last_name"
+    t.string   "name"
     t.string   "email"
     t.string   "password_digest"
     t.string   "instagram_username"
@@ -49,6 +50,9 @@ ActiveRecord::Schema.define(version: 20141030061952) do
     t.string   "twitter_username"
     t.string   "epic_mix_username"
     t.string   "epic_mix_password"
+    t.string   "image"
+    t.string   "uid"
+    t.string   "provider"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
