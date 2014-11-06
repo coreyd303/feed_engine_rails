@@ -11,22 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141104012551) do
+ActiveRecord::Schema.define(version: 20141106060250) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "groups", force: true do |t|
-    t.string   "name"
-    t.text     "description"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "groups_users", id: false, force: true do |t|
-    t.integer "group_id"
-    t.integer "user_id"
-  end
 
   create_table "insta", force: true do |t|
     t.integer  "insta_id"
@@ -42,16 +30,19 @@ ActiveRecord::Schema.define(version: 20141104012551) do
     t.string   "name"
     t.text     "description"
     t.integer  "group_id"
-    t.datetime "start_time"
-    t.datetime "end_time"
+    t.datetime "date"
     t.string   "location"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
+  create_table "trips_users", id: false, force: true do |t|
+    t.integer "trip_id"
+    t.integer "user_id"
+  end
+
   create_table "users", force: true do |t|
-    t.string   "first_name"
-    t.string   "last_name"
+    t.string   "name"
     t.string   "email"
     t.string   "password_digest"
     t.string   "instagram_username"
