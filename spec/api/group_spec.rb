@@ -7,7 +7,7 @@ describe 'Groups API' do
     get '/api/v1/groups.json'
     json = JSON.parse(response.body)
 
-    expect(json['json'].count).to eq(5)
+    expect(json['groups'].count).to eq(5)
   end
 
 
@@ -16,8 +16,9 @@ describe 'Groups API' do
 
     get "/api/v1/groups/#{group.id}.json"
     expect(response).to be_success
+    json = JSON.parse(response.body)
 
-    expect(json['name']).to eq(group.name)
+    expect(json['group']['name']).to eq(group.name)
   end
 
   it "can create a group" do
