@@ -8,6 +8,8 @@ gem 'active_model_serializers'
 gem 'instagram'
 gem 'figaro'
 gem 'sidekiq'
+gem 'omniauth-twitter'
+
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.0.0'

@@ -9,6 +9,9 @@ class CreateUsers < ActiveRecord::Migration
       t.string   :twitter_username
       t.string   :epic_mix_username
       t.string   :epic_mix_password
+      t.string   :image
+      t.string   :uid
+      t.string   :provider
       t.timestamps
     end
   end
