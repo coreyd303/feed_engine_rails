@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   resources :sessions
 
-  root 'static_pages_controller#index'
+  root 'static_pages#index'
 
 namespace :api do
   namespace :v1 do
