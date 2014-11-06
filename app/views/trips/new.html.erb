@@ -1,0 +1,16 @@
+<h1>Plan a new trip!</h1>
+
+<div>
+  <%= form_for @trip do |f| %>
+  <div>
+    <%= f.text_field :name, :class => 'form-control', :placeholder => "Trip Name" %>
+  </div>
+
+  <div>
+    <%= f.text_area :description, :class => 'form-control', :placeholder => "Description: e.g. Sick trip with the bros" %>
+  </div>
+
+  <div>
+  <%= f.text_field :date, :class => 'form-control', :placeholder => "Trip Name" %>
+  </div>
+</div>
