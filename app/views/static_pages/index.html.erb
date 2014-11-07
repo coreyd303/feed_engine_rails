@@ -1,1 +1,7 @@
-<%= link_to 'Plan a new trip!', new_trip_path %>
+<h1>Snowcial</h1>
+
+<%= link_to "Plan your first Trip!", new_trip_path %>
+
+
+<%= render partial: "/trips/feed", locals: {trips: @trips} %>
+

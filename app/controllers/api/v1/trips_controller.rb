@@ -29,6 +29,6 @@ class Api::V1::TripsController < ApplicationController
 private
 
   def safe_params
-    params.require(:trip).permit(:name, :description, :group_id, :start_time, :end_time, :location)
+    params.require(:trip).permit(:name, :description, :group_id, :start_time, :end_time, :trip_location)
   end
 end

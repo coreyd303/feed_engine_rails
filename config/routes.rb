@@ -6,11 +6,12 @@ root to: 'static_pages#index'
 
   resources :sessions
 
+  root 'static_pages#index'
+
 namespace :api do
   namespace :v1 do
     resources :trips
     resources :users
-    resources :groups
   end
 end
 
