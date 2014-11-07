@@ -24,7 +24,7 @@ class Seed
       trip = Trip.create(name: Faker::Company.name,
                          description: Faker::Lorem.sentences.join,
                          date: Faker::Time.forward(rand(0..50), :morning),
-                         location: "Breckenridge"
+                         trip_location: "Breckenridge"
                         )
     end
     puts "#{trips_count} Trips created"

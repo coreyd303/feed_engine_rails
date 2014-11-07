@@ -1,0 +1,9 @@
+<ul>
+<%= 3.times do %>
+  <% trip = @trips.sample %>
+  <li>
+  <p>Name: <%= link_to "#{trip.name}", trip_path(trip) %> </p>
+    <p>Description: <%= trip.description %></p>
+  </li>
+<% end %>
+</ul>

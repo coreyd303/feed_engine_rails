@@ -6,5 +6,5 @@ class UserSerializer < ActiveModel::Serializer
              :instagram_username,
              :instagram_id,
              :twitter_username 
-  has_many :instas
+  has_many :instas, :trips
 end

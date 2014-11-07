@@ -29,9 +29,8 @@ ActiveRecord::Schema.define(version: 20141106060250) do
   create_table "trips", force: true do |t|
     t.string   "name"
     t.text     "description"
-    t.integer  "group_id"
     t.datetime "date"
-    t.string   "location"
+    t.string   "trip_location"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
