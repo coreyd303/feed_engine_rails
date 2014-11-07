@@ -13,12 +13,13 @@ class TripsController < ApplicationController
   end
 
   def create
-    @trip = Trip.new(trip_params)
+    @trip = Trip.create(trip_params)
     if @trip.save
       flash[:notice] = "Your trip has been created bro!"
       redirect_to trip_path(@trip)
     else
       flash[:warning] = "Bummer bro, you trip ain't gonna happen!"
+      redirect_to new_trips_path
     end
   end
 
@@ -32,13 +33,13 @@ class TripsController < ApplicationController
     @trip = Trip.find(params[:id])
     @trip.destroy
   end
-  
+
 private
 
   def trip_params
     params.require(:trip).permit(:name,
                                  :description,
                                  :date,
-                                 :location)
+                                 :trip_location)
   end
 end

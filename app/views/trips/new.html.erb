@@ -11,11 +11,15 @@
     </div>
 
     <div>
-    <%= f.date_field :date, :class => 'form-control', :placeholder => "MM/DD/YYYY" %>
+      <%= f.date_field :date, :class => 'form-control', :placeholder => "MM/DD/YYYY" %>
     </div>
 
     <div>
-    <%= f.text_field :trip_location, :class => 'form-control', :placeholder => "Big Rock Candy Mountain" %>
+      <%= f.text_field :trip_location, :class => 'form-control', :placeholder => "Big Rock Candy Mountain" %>
+    </div>
+
+    <div>
+      <%= f.submit :submit, :class => 'btn btn-lg btn-info' %>
     </div>
   <% end %>
 </div>
