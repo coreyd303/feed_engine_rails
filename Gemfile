@@ -19,7 +19,10 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
-
+gem 'forecast_io'
+gem 'carrierwave'
+gem 'mini_magick', '~> 3.8.0'
+gem 'rmagick', '~>2.13.3', :require => false
 gem "simplecov", :require => false, :group => :test
 
 
@@ -29,7 +32,7 @@ group :development, :test do
   gem 'pry'
   gem 'faker'
   gem 'better_errors'
-gem 'binding_of_caller'
+  gem 'binding_of_caller'
 end
 
 group :test do
