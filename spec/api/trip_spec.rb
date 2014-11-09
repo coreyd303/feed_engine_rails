@@ -7,7 +7,7 @@ describe 'Trips API' do
     get "/api/v1/trips/#{trip.id}.json"
     expect(response).to be_success
 
-    expect(json['name']).to eq(trip.name)
+    expect(trip['name']).to eq(trip.name)
   end
 
   it "can create a trip" do

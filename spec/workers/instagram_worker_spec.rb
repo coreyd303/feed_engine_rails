@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-Rspec.describe InstaGetId do
+describe InstaGetId do
   let(:user) { create(:user, instagram_username: 'BroGnarly420') }
 
   let(:mock) do
