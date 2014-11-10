@@ -1,9 +1,15 @@
-<ul>
-<%= 3.times do %>
-  <% trip = @trips.sample %>
-  <li>
-  <p>Name: <%= link_to "#{trip.name}", trip_path(trip) %> </p>
-    <p>Description: <%= trip.description %></p>
-  </li>
-<% end %>
-</ul>
+<h3 class="site-text">Check out what our members are up to!</h3>
+
+<div class="row">
+  <%= 4.times do %>
+    <% trip = @trips.sample %>
+    <div class="col-md-3">
+      <div class="thumbnail">
+        <div class="caption">
+          <p class="site-txt-b"><%= link_to "#{trip.name}", trip_path(trip) %></p>
+          <p class="site-txt-b"><%= truncate(trip.description, length: 70) %></p>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
