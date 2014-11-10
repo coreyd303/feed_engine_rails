@@ -1,0 +1,40 @@
+<div class="jumbotron">
+  <p>Forcast.io</p>
+</div>
+
+<div class="jumbotron">
+  <h2 class="site-title">Plan your trip!</h2>
+  <%= form_for @user, :html => {:class => "form-horizontal"} do |f| %>
+    <div>
+      <div class="form-group">
+        <div class="col-md-6 col-md-offset-3">
+          <%= f.text_field :name, :class => 'form-control', :placeholder => "Your Name" %>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="col-md-6 col-md-offset-3">
+          <%= f.text_field :email, :class => 'form-control', :placeholder => "Email" %>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="col-md-6 col-md-offset-3">
+          <%= f.text_field :epic_mix_username, :class => 'form-control', :placeholder => "Epic Mix Username" %>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="col-md-6 col-md-offset-3">
+          <%= f.text_field :epic_mix_password, :class => 'form-control', :placeholder => "Epic Mix Password" %>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="col-md-6 col-md-offset-3">
+          <%= f.submit :submit, :class => 'btn btn-lg btn-info' %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

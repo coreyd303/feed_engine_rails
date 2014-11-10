@@ -22,8 +22,9 @@ gem 'jbuilder', '~> 2.0'
 gem 'forecast_io'
 gem 'carrierwave'
 gem 'mini_magick', '~> 3.8.0'
+gem 'epicmix', '~> 0.0.2'
 gem 'rmagick', '~>2.13.3', :require => false
-gem "simplecov", :require => false, :group => :test
+gem 'simplecov', :require => false, :group => :test
 
 
 group :development, :test do
