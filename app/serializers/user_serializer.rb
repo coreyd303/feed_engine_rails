@@ -1,16 +1,10 @@
 class UserSerializer < ActiveModel::Serializer
+  embed :ids, include: true
+
   attributes :id, 
-             :first_name,
-             :last_name,
-             :email,
+             :name,
              :instagram_username,
              :instagram_id,
-             :twitter_username,
-             :epic_mix_username,
-             :epic_mix_password
- # has_many :instas
-
- # has_many :trips, 
- #          :groups
+             :twitter_username 
+  has_many :instas, :trips
 end
-
