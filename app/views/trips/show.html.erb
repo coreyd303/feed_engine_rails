@@ -1,5 +1,8 @@
-<h1><%=@trip.name%></h1>
-<h3>Desctiption</h3>
-<p>
-  <%= @trip.description %> 
-</p>
+<div class="jumbotron">
+  <p class="site-text"
+    <%= @trip.name %><br/>
+    <%= @trip.description %><br/>
+    <%= @trip.date %><br/>
+    <%= @trip.trip_location %><br/>
+  </p>
+</div>
