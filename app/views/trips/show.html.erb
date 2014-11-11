@@ -23,14 +23,21 @@
   <div class="col-md-3">
     <div class="sidebar-offcanvas">
       <div class="list-group">
-      <% if current_user %>
+      <% if @trip.has_user?(current_user) %>
         <li class="list-group-item" id="trip"><h2>Invite friends</h2></li>
         <%= render partial: 'email_form' %>
       <% end %>
-        <li class="list-group-item" id="trip"><h2>Who's going</h2></li>
-        <% @trip.users.each do |user| %>
-          <li class="list-group-item" id="trip"><h4><%= link_to user.name, user_path(user) %></h4></li>
-        <% end %>
+      <li class="list-group-item" id="trip">
+        <h2>
+          Who's going 
+          <% if current_user %>
+            <%= link_to "Join the event", '#', class: "btn btn-lg btn-info pull-right" %>
+          <% end %>
+        </h2>
+      </li>
+      <% @trip.users.each do |user| %>
+        <li class="list-group-item" id="trip"><h4><%= link_to user.name, user_path(user) %></h4></li>
+      <% end %>
     </div>
   </div>
 </div>
