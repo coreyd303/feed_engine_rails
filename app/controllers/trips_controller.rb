@@ -6,6 +6,7 @@ class TripsController < ApplicationController
 
   def show
     @trip = Trip.find(params[:id])
+    @resort = Resort.find(params[:id][@trip.resort_id])
   end
 
   def new
@@ -24,10 +25,15 @@ class TripsController < ApplicationController
     end
   end
 
+  def edit
+    @trip = Trip.find(params[:id])
+  end
+
   def update
     @trip = Trip.find(params[:id])
-    @trip.update!
+    @trip.update(trip_params)
     flash[:notice] = "Werd bro, your trip is totally up to date!"
+    redirect_to trip_path(@trip)
   end
 
   def destroy
@@ -41,6 +47,7 @@ private
     params.require(:trip).permit(:name,
                                  :description,
                                  :date,
-                                 :trip_location)
+                                 :resort_id,
+                                 :coverphoto)
   end
 end

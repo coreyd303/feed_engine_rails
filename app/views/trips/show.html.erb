@@ -1,8 +1,11 @@
 <div class="jumbotron">
-  <p class="site-text"
+  <p class="site-text">
     <%= @trip.name %><br/>
     <%= @trip.description %><br/>
-    <%= @trip.date %><br/>
-    <%= @trip.trip_location %><br/>
+    <%= @trip.date.strftime("%m / %d / %Y")%><br/>
+    <%= @resort.name %><br/>
+  </p>
+  <p>
+  <%= image_tag @trip.coverphoto, class: "profile-img" %>
   </p>
 </div>

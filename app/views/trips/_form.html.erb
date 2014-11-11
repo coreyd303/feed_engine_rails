@@ -1,0 +1,42 @@
+  <%= form_for @trip, :html => {multipart: true, class: "form-horizontal"} do |f| %>
+    <div>
+      <div class="form-group">
+        <div class="col-md-6 col-md-offset-3">
+          <%= f.text_field :name, :class => 'form-control', :placeholder => "Trip Name: e.g. Susan's Birthday Bash" %>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="col-md-6 col-md-offset-3">
+          <%= f.text_area :description, :class => 'form-control', :placeholder => "Description: e.g. Sick trip with the bros" %>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="col-md-6 col-md-offset-3">
+          <p class="site-txt-b">
+            <%= f.label :cover_photo, class: "control-label" %>
+            <%= f.file_field :coverphoto, :class => 'form-control'%>
+          </p>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="col-md-8 col-md-offset-2">
+          <p class="site-txt-b">
+            <%= f.label "Resort:", class: "control-label"%>
+            <%= f.collection_select :resort_id, Resort.order(:name),:id, :name, include_blank: false, class: "form-control" %>
+           &nbsp
+            <%= f.label "Trip Date:", class: "control-label"%>
+            <%= date_select :trip, :date, class: "form-control"%>
+          </p>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="col-md-6 col-md-offset-3">
+          <%= f.submit :submit, :class => 'btn btn-lg btn-info' %>
+        </div>
+      </div>
+    </div>
+  <% end %>
