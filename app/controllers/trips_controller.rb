@@ -9,6 +9,7 @@ class TripsController < ApplicationController
   end
 
   def new
+    @resorts = Resort.all
     @trip = Trip.new
   end
 

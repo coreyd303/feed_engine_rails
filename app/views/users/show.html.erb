@@ -1,15 +1,15 @@
 <div class="jumbotron">
-    <p class="col-md-3 col-md-offset-1">
+  <div class="row"
+    <div class="thumbnail">
       <h2 class="site-title">Welcome <%= @user.name %></h2>
       <%= image_tag @user.avatar, class: "profile-img" %>
-    </p>
-    <p>
-      <ul>
-        <%= @trips.each do |trip| %>
-          <li><%= link_to trip.name, trip_path(trip) %></li>
-        <% end %>
-      </ul>
-    </p>
+    </div>
+    <% @trips.each do |trip| %>
+    <div class="float-rt">
+          <%= link_to trip.name, trip_path(trip) %><br/>
+      <% end %>
+    </div>
+  </div>
 </div>
 
 <% if @user.has_epic_mix_data? %>
