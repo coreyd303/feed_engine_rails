@@ -7,9 +7,8 @@
   </p>
 
   <ul>
-    <%= @instas.each do |pic| %>
-      <%= binding.pry %>
-      <li><img src="#{pic.thumbnail_url}"></li> 
+    <% @instas.each do |pic| %>
+      <li><%= image_tag pic.thumbnail_url %><li> 
     <% end %>
   </ul>
 </div>
