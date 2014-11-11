@@ -1,6 +1,15 @@
 <div class="jumbotron">
-  <h1 class="site-text site-title" style="color: 000000">Welcome <%= @user.name %></h1>
-  <p><%= image_tag(@user.avatar) %></p>
+    <p class="col-md-3 col-md-offset-1">
+      <h2 class="site-title">Welcome <%= @user.name %></h2>
+      <%= image_tag @user.avatar, class: "profile-img" %>
+    </p>
+    <p>
+      <ul>
+        <%= @trips.each do |trip| %>
+          <li><%= link_to trip.name, trip_path(trip) %></li>
+        <% end %>
+      </ul>
+    </p>
 </div>
 
 <% if @user.has_epic_mix_data? %>

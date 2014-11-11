@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
   has_and_belongs_to_many :trips
   has_many :instas
+  mount_uploader :avatar, AvatarUploader
 
 #  after_create :get_insta_id
 
