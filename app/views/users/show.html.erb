@@ -1,6 +1,15 @@
 <div class="jumbotron">
-  <h1 class="site-text site-title" style="color: 000000">Welcome <%= @user.name %></h1>
-  <p><%= image_tag(@user.avatar) %></p>
+    <p class="col-md-3 col-md-offset-1">
+      <h2 class="site-title">Welcome <%= @user.name %></h2>
+      <%= image_tag @user.avatar, class: "profile-img" %>
+    </p>
+    <p>
+      <ul>
+        <%= @user_trips.each do |trip| %>
+          <li><%= link_to trip.name, trip_path(trip) %></li>
+        <% end %>
+      </ul>
+    </p>
 </div>
 
 <div class="jumbotron">
@@ -12,9 +21,9 @@
         <!-- Table -->
         <table class="table">
         <tr>
-          <td>Vertical Feet</td>
-          <td>Runs</td>
-          <td>Day on the Mountain</td>
+          <td>Lifetime Vertical Feet</td>
+          <td>Runs this Season</td>
+          <td>Days on the Mountain</td>
         </tr>
         <tr>
           <td><%= @client.season_stats.last['verticalFeet'] %></td>
