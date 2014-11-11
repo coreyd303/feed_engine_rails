@@ -19,6 +19,7 @@ class Api::V1::UsersController < ApplicationController
   def update
     user = User.find(params[:id])
     user.update(safe_params)
+    head :ok
   end
 
   def destroy
