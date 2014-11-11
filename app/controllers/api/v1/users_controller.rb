@@ -1,3 +1,5 @@
+require 'epicmix'
+
 class Api::V1::UsersController < ApplicationController
   respond_to :json
 
@@ -10,7 +12,7 @@ class Api::V1::UsersController < ApplicationController
   end
 
   def create
-    User.create(safe_params)
+    User.create!(safe_params)
     head :ok
   end
 
@@ -28,8 +30,16 @@ class Api::V1::UsersController < ApplicationController
 private
 
   def safe_params
-    params.require(:user).permit(:first_name, :last_name, :email, :instagram_username,
-                                 :instagram_id, :twitter_username, :epic_mix_username, 
-                                 :epic_mix_password)
+    params.require(:user).permit(:name,
+                                 :email,
+                                 :instagram_username,
+                                 :instagram_id, 
+                                 :twitter_username, 
+                                 :epic_mix_username, 
+                                 :epic_mix_password,
+                                 :provider,
+                                 :uid,
+                                 :image
+                                )
   end
 end

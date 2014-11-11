@@ -1,8 +1,7 @@
 class CreateUsers < ActiveRecord::Migration
   def change
     create_table :users do |t|
-      t.string   :first_name
-      t.string   :last_name
+      t.string   :name
       t.string   :email
       t.string   :password_digest
       t.string   :instagram_username
@@ -10,6 +9,9 @@ class CreateUsers < ActiveRecord::Migration
       t.string   :twitter_username
       t.string   :epic_mix_username
       t.string   :epic_mix_password
+      t.string   :image
+      t.string   :uid
+      t.string   :provider
       t.timestamps
     end
   end

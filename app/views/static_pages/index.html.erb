@@ -1,0 +1,13 @@
+
+
+<div class="jumbotron">
+  <h3 class="site-title">Welcome to Snowcial</h3>
+  <p class="site-text">
+    Snocial is a sowcial platform for the snowsports community. Snowcial provides a fast and easy way to create and share your winter adventures with your friends and the community at large.
+  </p>
+  <%= link_to "Plan your first Trip!", new_trip_path, class: "btn btn-lg btn-info" %>
+</div>
+
+<div class="jumbotron">
+  <%= render partial: "/trips/feed", locals: {trips: @trips} %>
+</div>

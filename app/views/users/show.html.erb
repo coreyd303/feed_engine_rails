@@ -1,0 +1,24 @@
+<div class="jumbotron">
+  <h1 class="site-text site-title" style="color: 000000">Welcome <%= @user.name %></h1>
+  <p><%= image_tag(@user.avatar) %></p>
+</div>
+
+<% if @user.has_epic_mix_data? %>
+  <%= render partial: epic_mix_data, client: @user.epic_mix_client %>
+<% end %>
+
+<div class="jumbotron">
+  <h3 class="site-text">Your trip history</h3>
+    <div class="row site-txt-b">
+    <% @trips.each do |trip| %>
+      <div class="col-md-3">
+        <div class="thumbnail">
+          <div class="caption">
+            <%= link_to trip.name, trip_path(trip) %>
+            <%= trip.date %>
+            <%= trip.trip_location %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+</div>
