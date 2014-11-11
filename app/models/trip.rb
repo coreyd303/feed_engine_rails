@@ -5,7 +5,7 @@ class Trip < ActiveRecord::Base
   def instagram
     self.users.each do |user|
       if user.instagram_id
-       GetUserInstas.perform(user, self) 
+       GetUserInstas.new.perform(user, self) 
       end
     end
   end

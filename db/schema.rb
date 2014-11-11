@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 20141110011203) do
   create_table "insta", force: true do |t|
     t.integer  "insta_id"
     t.integer  "user_id"
+    t.integer  "trip_id"
     t.string   "insta_url"
     t.string   "thumbnail_url"
     t.string   "full_size_url"
