@@ -5,4 +5,10 @@
     <%= @trip.date %><br/>
     <%= @trip.trip_location %><br/>
   </p>
+
+  <ul>
+    <%= @instas.each do |pic| %>
+      <li><img src="#{pic.thumbnail_url}"></li> 
+    <% end %>
+  </ul>
 </div>
