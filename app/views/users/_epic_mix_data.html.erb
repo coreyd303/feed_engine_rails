@@ -1,0 +1,22 @@
+<div class="jumbotron">
+  <h3 class="site-text">Your Epicmix stats</h3>
+    <div class="panel panel-default">
+      <!-- Default panel contents -->
+
+      <div class="panel-heading">Stats for <%= @client.season_stats.last['year'] %></div>
+
+        <!-- Table -->
+        <table class="table">
+        <tr>
+          <td>Vertical Feet</td>
+          <td>Runs</td>
+          <td>Day on the Mountain</td>
+        </tr>
+        <tr>
+          <td><%= @client.season_stats.last['verticalFeet'] %></td>
+          <td><%= @client.season_stats.last['numberOfLifts'] %></td>
+          <td><%= @client.season_stats.last['daysOnMountain'] %></td>
+        </tr>
+        </table>
+      </div>
+    </div>
