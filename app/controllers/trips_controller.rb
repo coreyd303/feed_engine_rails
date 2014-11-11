@@ -1,12 +1,14 @@
 class TripsController < ApplicationController
+include ForecastHelper
 
   def index
     @trip = Trip.all
   end
 
   def show
-    @trip = Trip.find(params[:id])
-    @resort = Resort.find(params[:id][@trip.resort_id])
+    @trip    = Trip.find(params[:id])
+    @resort  = Resort.find(params[:id][@trip.resort_id])
+    trip_forecast(@trip)
   end
 
   def new
