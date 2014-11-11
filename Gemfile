@@ -25,7 +25,7 @@ gem 'mini_magick', '~> 3.8.0'
 gem 'epicmix', '~> 0.0.2'
 gem 'rmagick', '~>2.13.3', :require => false
 gem 'simplecov', :require => false, :group => :test
-
+gem "codeclimate-test-reporter", group: :test, require: nil
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.0.0'
