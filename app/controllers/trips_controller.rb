@@ -6,10 +6,11 @@ class TripsController < ApplicationController
 
   def show
     @trip = Trip.find(params[:id])
+    @invite = Invite.new
   end
 
   def new
-    @trip = Trip.new
+    @trip   = Trip.new
   end
 
   def create

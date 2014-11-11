@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get 'signout', to: 'sessions#destroy', as: 'signout'
   
   resources :sessions, only: [:create, :destroy]
+  resources :invites, only: [:create]
 
   namespace :api do
     namespace :v1 do
