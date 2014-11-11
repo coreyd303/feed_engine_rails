@@ -5,7 +5,7 @@
     </p>
     <p>
       <ul>
-        <%= @user_trips.each do |trip| %>
+        <%= @trips.each do |trip| %>
           <li><%= link_to trip.name, trip_path(trip) %></li>
         <% end %>
       </ul>

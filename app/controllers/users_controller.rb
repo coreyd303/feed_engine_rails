@@ -8,7 +8,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @user_trips = @user.trips
+    @trips = @user.trips
     @client = Epicmix::Client.new(@user.epic_mix_username, 
                                   @user.epic_mix_password)
   end
