@@ -25,7 +25,14 @@
           <li><%= link_to "Home", root_path %></li>
           <li><%= link_to "Trips", trips_path %></li>
           <li><%= link_to "Users", users_path %></li>
-          <li><a href='/users' onClick="window.open('http://127.0.0.1:3000/auth/twitter', '_blank')">Sign In with Twitter</a></li>
+        </ul>
+        <ul class="nav navbar-nav pull-right">
+          <% if current_user %>
+            <li><%= link_to "Welcome #{current_user.name}!", user_path(current_user) %></li>
+            <li><%= link_to "Sign Out", signout_path %></li> 
+          <% else %>
+            <li><%= link_to "Sign In with Twitter", "/auth/twitter" %></li>
+          <% end %>
         </ul>
       </div><!--/.nav-collapse -->
     </div>

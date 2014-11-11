@@ -3,8 +3,9 @@ Rails.application.routes.draw do
   root to: 'static_pages#index'
 
   get '/auth/:provider/callback', to: 'sessions#create'
-
-  resources :sessions
+  get 'signout', to: 'sessions#destroy', as: 'signout'
+  
+  resources :sessions, only: [:create, :destroy]
 
   namespace :api do
     namespace :v1 do
