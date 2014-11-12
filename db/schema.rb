@@ -59,6 +59,7 @@ ActiveRecord::Schema.define(version: 20141111213842) do
     t.string   "twitter_username"
     t.string   "epic_mix_username"
     t.string   "epic_mix_password"
+    t.string   "image"
     t.string   "uid"
     t.string   "provider"
     t.datetime "created_at"
