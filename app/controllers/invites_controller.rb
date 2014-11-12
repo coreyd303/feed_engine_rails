@@ -8,7 +8,7 @@ class InvitesController < ApplicationController
                        @invite.body
                        ).deliver
     
-    redirect_to '/', notice: "Your email has been sent!"
+    redirect_to :back, notice: "Your email has been sent!"
   end
 
   private
