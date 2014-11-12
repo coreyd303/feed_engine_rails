@@ -35,6 +35,12 @@ class TripsController < ApplicationController
     @trip.destroy
   end
 
+  def join
+    @trip = Trip.find(params[:id])
+    @trip.add_user(current_user)
+    redirect_to :back
+  end
+
 private
 
   def trip_params

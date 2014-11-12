@@ -30,8 +30,8 @@
       <li class="list-group-item" id="trip">
         <h2>
           Who's going 
-          <% if current_user %>
-            <%= link_to "Join the event", '#', class: "btn btn-lg btn-info pull-right" %>
+          <% if user_can_join(@trip) %>
+            <%= link_to "Join the event", join_trip_path(@trip), class: "btn btn-lg btn-info pull-right" %>
           <% end %>
         </h2>
       </li>

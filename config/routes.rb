@@ -15,6 +15,10 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :trips
+  resources :trips do
+    member do
+      get :join
+    end
+  end
   resources :users
 end

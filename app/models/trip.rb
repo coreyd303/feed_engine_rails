@@ -4,4 +4,8 @@ class Trip < ActiveRecord::Base
   def has_user?(user)
     users.include?(user)
   end
+
+  def add_user(user)
+    users << user
+  end
 end
