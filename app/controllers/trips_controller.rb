@@ -2,7 +2,7 @@ class TripsController < ApplicationController
 include ForecastHelper
 
   def index
-    @trip = Trip.all
+    @trips = Trip.sort_by_date
   end
 
   def show
@@ -24,7 +24,7 @@ include ForecastHelper
       flash[:success] = "Your trip has been created bro!"
       redirect_to trip_path(@trip)
     else
-      flash[:warning] = "Bummer bro, you trip ain't gonna happen!"
+      flash[:warning] = "Bummer bro, your trip ain't gonna happen!"
       redirect_to new_trips_path
     end
   end

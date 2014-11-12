@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   get '/auth/:provider/callback', to: 'sessions#create'
   get 'signout', to: 'sessions#destroy', as: 'signout'
+  get '/search', to: 'users#search'
   
   resources :sessions, only: [:create, :destroy]
   resources :invites, only: [:create]
