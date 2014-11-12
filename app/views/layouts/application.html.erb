@@ -1,35 +1,48 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Feedengine</title>
+  <title>Snowcial</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
   <nav class="navbar navbar-inverse" role="navigation">
-    <div class="container">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="/">
-          <span class="glyphicon glyphicon-tree-conifer"></span>Snowcial
-        </a>
-      </div>
-      <div id="navbar" class="navbar-collapse collapse">
-        <ul class="nav navbar-nav">
-          <li><%= link_to "Home", root_path %></li>
-          <li><%= link_to "Trips", trips_path %></li>
-          <li><%= link_to "Users", users_path %></li>
-          <li><a href='/users' onClick="window.open('http://127.0.0.1:3000/auth/twitter', '_blank')">Sign In with Twitter</a></li>
-        </ul>
-      </div><!--/.nav-collapse -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/">
+        <span class="glyphicon glyphicon-tree-conifer"></span>Snowcial
+      </a>
+    </div>
+
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li><%= link_to "Home", root_path %></li>
+        <li><%= link_to "Trips", trips_path %></li>
+        <li><%= link_to "Users", users_path %></li>
+      </ul>
+      <ul class="nav navbar-nav pull-right">
+        <% if current_user %>
+          <li><%= link_to "Welcome #{current_user.name}!", user_path(current_user) %></li>
+          <li><%= link_to "Sign Out", signout_path %></li> 
+        <% else %>
+          <li><%= link_to "Sign In with Twitter", "/auth/twitter" %></li>
+        <% end %>
+      </ul>
     </div>
   </nav>
+  <div class="alert-background text-center">
+    <% flash.each do |type, message| %>
+      <div class="alert alert-<%= type %>">
+        <%= message %>
+      </div>
+    <% end %>
+  </div>
 
 <%= yield %>
 

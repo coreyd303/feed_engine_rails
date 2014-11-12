@@ -1,8 +1,57 @@
-<div class="jumbotron">
-  <p class="site-text"
-    <%= @trip.name %><br/>
-    <%= @trip.description %><br/>
-    <%= @trip.date %><br/>
-    <%= @trip.trip_location %><br/>
-  </p>
+<div class="row">
+  <div class="col-md-9" id="trip">
+    <div class="panel" id="trip">
+      <div class="panel-heading">
+        <%= image_tag @trip.coverphoto, class: "trip-img pull-right" %>
+        <h1><%= @trip.name %></h1>
+        <%= @trip.description %>
+        <%= @trip.date.strftime("%m / %d / %Y")%><br/>
+        <%= @trip.trip_location %>
+        <% if @resort %>
+        <%= @resort.name %>
+      <h2>Current Forecast for <%= @resort.name %></h2>
+      Summary: <%= @forecast [:hourly][:summary] %><br/>
+      Precipitation: <%= @forecast [:currently][:precipType] %><br/>
+      Temperature: <%= @forecast [:currently][:temperature] %><br/>
+      Windspeed: <%= @forecast [:currently][:windSpeed] %>
+      <% end %>
+      </div>
+    </div>
+    <div class="col-md-5">
+      <div class="thumbnail" id="feed">
+        <h1>Twitter Feed</h1>
+      </div>
+    </div>
+    <div class="col-md-7">
+      <div class="thumbnail" id="feed">
+        <h1>Some Instas</h1>
+        <ul>
+          <% @instas.each do |pic| %>
+            <li><%= image_tag pic.thumbnail_url %><li> 
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="sidebar-offcanvas">
+      <div class="list-group">
+        <% if @trip.has_user?(current_user) %>
+          <li class="list-group-item" id="trip"><h2>Invite friends</h2></li>
+          <%= render partial: 'email_form' %>
+        <% end %>
+        <li class="list-group-item" id="trip">
+          <h2>
+            Who's going 
+            <% if user_can_join(@trip) %>
+              <%= link_to "Join the event", join_trip_path(@trip), class: "btn btn-lg btn-info pull-right" %>
+            <% end %>
+          </h2>
+        </li>
+        <% @trip.users.each do |user| %>
+          <li class="list-group-item" id="trip"><h4><%= link_to user.name, user_path(user) %></h4></li>
+        <% end %>
+      </div>
+    </div>
+  </div>
 </div>

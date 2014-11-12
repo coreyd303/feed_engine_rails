@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Does it work at all?</h1>
+    <h1><%= @user.name %> has invited you to join a trip!</h1>
+    <h3><%= @trip.name %></h3>
+    <h3>Please click the link below to RSVP.</h3>
+    <%= link_to "Confirm", "http://localhost:3000/trips/#{@trip.id}" %>
+  </body>
+</html>

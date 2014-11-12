@@ -4,4 +4,9 @@ insta_secret: 'cf8d8b9faaac441886f94f19bfc805cd'
 twitter_id: 'KQS6IWT349iBu96d4H5mQsgNk'
 twitter_secret: 'qGSKi6vYHkIOxOeurAf2jBuGOtPIY763Xn7tahodNaItw0cV13'
 
-forecast_secert: 
+sendgrid_password: "C1MMnJN0rJeQECGXOdIp77G2ZD2M0Ow0w7mWVVngd4ZApeCyeo" 
+
+forecast_secret: '4b8043e866e503b770e0e0eab8d6a50d'
+
+CODECLIMATE_REPO_TOKEN: '92d226cb2c693c26dd1cf20f59b0f1bb896a9a2ab1f099b3e0b3a67bee43afea'
+
