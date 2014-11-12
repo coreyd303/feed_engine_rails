@@ -2,7 +2,7 @@ class TripsController < ApplicationController
 include ForecastHelper
 
   def index
-    @trips = Trip.all
+    @trips = Trip.sort_by_date
   end
 
   def show

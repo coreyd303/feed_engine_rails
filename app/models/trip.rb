@@ -22,4 +22,8 @@ class Trip < ActiveRecord::Base
       end
     end
   end
+
+  def self.sort_by_date
+    all.sort_by { |trip| trip.date }
+  end
 end
