@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
   has_many :instas
   mount_uploader :avatar, AvatarUploader
 
-#  after_create :get_insta_id
+  after_create :get_insta_id
 
   def has_epic_mix_data?
     epic_mix_username
@@ -11,10 +11,11 @@ class User < ActiveRecord::Base
 
   def epic_mix_client
     @epic_mix_client = Epicmix::Client.new(epic_mix_username, 
-                                  epic_mix_password)
+                                           epic_mix_password)
   end
 
   def get_insta_id
+    binding.pry
     id = InstaGetId.new.perform(self.instagram_username)
     self.instagram_id = id
     self.save
