@@ -27,7 +27,7 @@ gem 'whenever', :require => false
 gem 'rmagick', '~>2.13.3', :require => false
 gem 'simplecov', :require => false, :group => :test
 gem "codeclimate-test-reporter", group: :test, require: nil
-
+gem 'twitter'
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.0.0'

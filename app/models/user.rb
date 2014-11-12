@@ -14,6 +14,18 @@ class User < ActiveRecord::Base
                                            epic_mix_password)
   end
 
+  def get_tweets(date)
+    client = Twitter::REST::Client.new do |config|
+      config.consumer_key        ="KQS6IWT349iBu96d4H5mQsgNk"
+      config.consumer_secret     ="qGSKi6vYHkIOxOeurAf2jBuGOtPIY763Xn7tahodNaItw0cV13"
+      config.access_token        ="977286368-Q0PX6I0HGH5oA30nJqz5Ap2HcpL5WyDqMybUMkfo"
+      config.access_token_secret ="EYY1aab6ycw2wy2ecHORYyCUZnQgxTd6v1CKAPlwTJlT4"
+    end
+
+    tweets = client.user_timeline(twitter_username)
+    tweets.select { |t| t.created_at.strftime('%m/%d/%Y') == date.strftime('%m/%d/%Y') }
+  end
+
   def get_insta_id
     if self.instagram_username
       id = InstaGetId.new.perform(self.instagram_username)

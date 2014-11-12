@@ -18,9 +18,7 @@
       </div>
     </div>
     <div class="col-md-5">
-      <div class="thumbnail" id="feed">
-        <h1>Twitter Feed</h1>
-      </div>
+      <%= render partial: 'twitter_feed' %>
     </div>
     <div class="col-md-7">
       <div class="thumbnail" id="feed">
@@ -44,7 +42,7 @@
           <h2>
             Who's going 
             <% if user_can_join(@trip) %>
-              <%= link_to "Join the event", join_trip_path(@trip), class: "btn btn-lg btn-info pull-right" %>
+              <%= link_to "Join!", join_trip_path(@trip), class: "btn btn-info pull-right" %>
             <% end %>
           </h2>
         </li>

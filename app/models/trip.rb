@@ -22,4 +22,11 @@ class Trip < ActiveRecord::Base
       end
     end
   end
+
+  def get_tweets(date)
+    tweets = users.map do |user|
+      user.get_tweets(date)
+    end
+    tweets.flatten.sort_by { |t| t.created_at }.reverse
+  end
 end

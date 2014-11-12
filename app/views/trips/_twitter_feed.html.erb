@@ -1,0 +1,16 @@
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h1>Twitter Feed</h1>
+  </div>
+</div>
+<div class='twitter-feed'>
+<% @trip.get_tweets(@trip.date).each do |t| %>
+<div class="thumbnail">
+      <div class="caption">
+        <p class="site-text"><%= t.created_at %></p>
+        <h3 class="site-text"><%= t.text %></h3>
+    </div>
+  </div>
+<% end %>
+</div>
