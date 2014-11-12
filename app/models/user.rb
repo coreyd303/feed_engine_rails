@@ -11,7 +11,7 @@ class User < ActiveRecord::Base
 
   def epic_mix_client
     @epic_mix_client = Epicmix::Client.new(epic_mix_username, 
-                                  epic_mix_password)
+                                           epic_mix_password)
   end
 
   def get_insta_id
