@@ -1,5 +1,5 @@
 class Api::V1::TripsController < ApplicationController
-  respond_to :json
+  respond_to :json, :xml, :html
 
   def index
     respond_with Trip.all
@@ -29,6 +29,10 @@ class Api::V1::TripsController < ApplicationController
 private
 
   def safe_params
-    params.require(:trip).permit(:name, :description, :group_id, :start_time, :end_time, :trip_location)
+    params.require(:trip).permit(:name, 
+                                 :description,  
+                                 :date, 
+                                 :trip_location,
+                                 :resort_id)
   end
 end
