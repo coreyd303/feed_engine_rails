@@ -2,10 +2,19 @@
   <div class="col-md-9" id="trip">
     <div class="panel" id="trip">
       <div class="panel-heading">
+        <%= image_tag @trip.coverphoto, class: "trip-img pull-right" %>
         <h1><%= @trip.name %></h1>
         <%= @trip.description %>
-        <%= @trip.date.strftime('%A, %b %d') %>
+        <%= @trip.date.strftime("%m / %d / %Y")%><br/>
         <%= @trip.trip_location %>
+        <% if @resort %>
+        <%= @resort.name %>
+      <h2>Current Forecast for <%= @resort.name %></h2>
+      Summary: <%= @forecast [:hourly][:summary] %><br/>
+      Precipitation: <%= @forecast [:currently][:precipType] %><br/>
+      Temperature: <%= @forecast [:currently][:temperature] %><br/>
+      Windspeed: <%= @forecast [:currently][:windSpeed] %>
+      <% end %>
       </div>
     </div>
     <div class="col-md-5">
@@ -41,4 +50,5 @@
     </div>
   </div>
 </div>
+
   

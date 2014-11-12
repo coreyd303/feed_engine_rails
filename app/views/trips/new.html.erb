@@ -3,48 +3,10 @@
 </div>
 
 <div class="jumbotron">
-<% if current_user %>
-  <h2 class="site-title">Plan your trip!</h2>
-  <%= form_for @trip, :html => {:class => "form-horizontal"} do |f| %>
-    <div>
-      <div class="form-group">
-        <div class="col-md-6 col-md-offset-3">
-          <%= f.text_field :name, :class => 'form-control', :placeholder => "Trip Name" %>
-        </div>
-      </div>
-
-      <div class="form-group">
-        <div class="col-md-6 col-md-offset-3">
-          <%= f.text_area :description, :class => 'form-control', :placeholder => "Description: e.g. Sick trip with the bros" %>
-        </div>
-      </div>
-
-      <div class="form-group">
-        <div class="col-md-6 col-md-offset-3">
-          <%= f.date_field :date, :class => 'form-control', :placeholder => "MM/DD/YYYY" %>
-        </div>
-      </div>
-
-      <div class="form-group">
-        <div class="col-md-6 col-md-offset-3">
-          <%= f.text_field :trip_location, :class => 'form-control', :placeholder => "Big Rock Candy Mountain" %>
-        </div>
-      </div>
-
-        <div class="form-group">
-          <div class="col-md-6 col-md-offset-3">
-            <%= f.submit 'Submit', :class => 'btn btn-lg btn-info btn-block' %>
-          </div>
-        </div>
+  <% if current_user %>
+    <h2 class="site-text">Plan your trip!</h2>
+    <%= render partial: "form" %>
   <% end %>
-<% else %>
-  <h2 class="site-title">Sign In To Create a Trip!</h2>      
-    <div class="form-group">
-        <div class="col-md-6 col-md-offset-3">
-          <%= link_to "Sign In With Twitter", "/auth/twitter", :class => 'btn btn-lg btn-info btn-block' %>
-        </div>
-      </div>
-<% end %>
 </div>
 
 

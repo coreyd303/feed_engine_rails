@@ -46,9 +46,9 @@
   padding: 10px;
 }
 
-.panel {
+.panel#trip {
   background: rgba(10, 10, 10, 0.7);
-  height: 200px;
+  height: 450px;
   color: white;
 }
 
@@ -100,11 +100,6 @@ html, body {
   text-align: center;
 }
 
-.site-title {
-  color: white;
-  text-align: center;
-}
-
 .site-txt-b {
   color: #D6E0EB;
   text-align: center;
@@ -112,7 +107,6 @@ html, body {
 
 .site-title {
   color: white;
-  text-align: center;
 }
 
 // New users home page
@@ -127,6 +121,18 @@ html, body {
   margin-right: auto;
 }
 
+// Users show page
+
+.float-rt {
+  float:right;
+}
+
+.profile-img {
+  height: 200px;
+  width: 190px;
+  box-shadow: 10px 10px 5px #888888;
+}
+
 // new trip page
 
 .form-box {
@@ -139,4 +145,12 @@ html, body {
   border-width: 0;
   border-radius: 5px;
   margin-bottom: 5px;
+}
+
+// trip show page
+
+.trip-img {
+  height: 400px;
+  width: 380px;
+  box-shadow: 10px 10px 5px #888888; 
 }
