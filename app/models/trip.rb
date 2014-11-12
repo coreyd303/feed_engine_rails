@@ -29,4 +29,8 @@ class Trip < ActiveRecord::Base
     end
     tweets.flatten.sort_by { |t| t.created_at }.reverse
   end
+
+  def self.sort_by_date
+    all.sort_by { |trip| trip.date }
+  end
 end
