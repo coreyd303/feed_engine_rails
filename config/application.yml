@@ -3,6 +3,8 @@ insta_secret: 'cf8d8b9faaac441886f94f19bfc805cd'
 
 twitter_id: 'KQS6IWT349iBu96d4H5mQsgNk'
 twitter_secret: 'qGSKi6vYHkIOxOeurAf2jBuGOtPIY763Xn7tahodNaItw0cV13'
+twitter_access_token: "977286368-Q0PX6I0HGH5oA30nJqz5Ap2HcpL5WyDqMybUMkfo"
+twitter_access_token_secret: "EYY1aab6ycw2wy2ecHORYyCUZnQgxTd6v1CKAPlwTJlT4"
 
 sendgrid_password: "C1MMnJN0rJeQECGXOdIp77G2ZD2M0Ow0w7mWVVngd4ZApeCyeo" 
 

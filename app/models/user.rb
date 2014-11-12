@@ -16,10 +16,10 @@ class User < ActiveRecord::Base
 
   def get_tweets(date)
     client = Twitter::REST::Client.new do |config|
-      config.consumer_key        ="KQS6IWT349iBu96d4H5mQsgNk"
-      config.consumer_secret     ="qGSKi6vYHkIOxOeurAf2jBuGOtPIY763Xn7tahodNaItw0cV13"
-      config.access_token        ="977286368-Q0PX6I0HGH5oA30nJqz5Ap2HcpL5WyDqMybUMkfo"
-      config.access_token_secret ="EYY1aab6ycw2wy2ecHORYyCUZnQgxTd6v1CKAPlwTJlT4"
+      config.consumer_key        = Figaro.env.twitter_id 
+      config.consumer_secret     = Figaro.env.twitter_secret 
+      config.access_token        = Figaro.env.twitter_access_token 
+      config.access_token_secret = Figaro.env.twitter_access_token_secret
     end
 
     tweets = client.user_timeline(twitter_username)
