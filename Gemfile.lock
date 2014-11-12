@@ -201,6 +201,7 @@ GEM
       actionpack (>= 3.0)
       activesupport (>= 3.0)
       sprockets (>= 2.8, < 4.0)
+    sqlite3 (1.3.9)
     subexec (0.2.3)
     therubyracer (0.12.1)
       libv8 (~> 3.16.14.0)
@@ -226,11 +227,6 @@ PLATFORMS
 
 DEPENDENCIES
   active_model_serializers
-  factory_girl_rails
-  faker
-  figaro
-  instagram
-  omniauth-twitter
   autoprefixer-rails
   bcrypt (~> 3.1.7)
   better_errors
@@ -258,6 +254,7 @@ DEPENDENCIES
   sidekiq
   simplecov
   spring
+  sqlite3
   therubyracer
   thin
   turbolinks
