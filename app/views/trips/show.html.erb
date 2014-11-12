@@ -18,4 +18,11 @@
     <%= image_tag @trip.coverphoto, class: "trip-img" %>
     </p>
   </div>
+
+<div class="jumbotron">
+  <ul>
+    <% @instas.each do |pic| %>
+      <li><%= image_tag pic.thumbnail_url %><li> 
+    <% end %>
+  </ul>
 </div>

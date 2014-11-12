@@ -7,7 +7,8 @@ include ForecastHelper
 
   def show
     @trip   = Trip.find(params[:id])
-    @resort = Resort.find(params[:id][@trip.resort_id])
+    @resort = Resort.find(params[:id][@trip.resort_id]
+    @instas = @trip.instas
     trip_forecast(@trip)
   end
 
