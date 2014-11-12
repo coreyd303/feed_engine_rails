@@ -22,40 +22,36 @@
         <h1>Twitter Feed</h1>
       </div>
     </div>
-      <div class="col-md-7">
-    <div class="thumbnail" id="feed">
-      <h1>Some Instas</h1>
+    <div class="col-md-7">
+      <div class="thumbnail" id="feed">
+        <h1>Some Instas</h1>
+        <ul>
+          <% @instas.each do |pic| %>
+            <li><%= image_tag pic.thumbnail_url %><li> 
+          <% end %>
+        </ul>
+      </div>
     </div>
-    </div>
-
   </div>
   <div class="col-md-3">
     <div class="sidebar-offcanvas">
       <div class="list-group">
-      <% if @trip.has_user?(current_user) %>
-        <li class="list-group-item" id="trip"><h2>Invite friends</h2></li>
-        <%= render partial: 'email_form' %>
-      <% end %>
-      <li class="list-group-item" id="trip">
-        <h2>
-          Who's going 
-          <% if user_can_join(@trip) %>
-            <%= link_to "Join the event", join_trip_path(@trip), class: "btn btn-lg btn-info pull-right" %>
-          <% end %>
-        </h2>
-      </li>
-      <% @trip.users.each do |user| %>
-        <li class="list-group-item" id="trip"><h4><%= link_to user.name, user_path(user) %></h4></li>
-      <% end %>
+        <% if @trip.has_user?(current_user) %>
+          <li class="list-group-item" id="trip"><h2>Invite friends</h2></li>
+          <%= render partial: 'email_form' %>
+        <% end %>
+        <li class="list-group-item" id="trip">
+          <h2>
+            Who's going 
+            <% if user_can_join(@trip) %>
+              <%= link_to "Join the event", join_trip_path(@trip), class: "btn btn-lg btn-info pull-right" %>
+            <% end %>
+          </h2>
+        </li>
+        <% @trip.users.each do |user| %>
+          <li class="list-group-item" id="trip"><h4><%= link_to user.name, user_path(user) %></h4></li>
+        <% end %>
+      </div>
     </div>
   </div>
-
-<div class="jumbotron">
-  <ul>
-    <% @instas.each do |pic| %>
-      <li><%= image_tag pic.thumbnail_url %><li> 
-    <% end %>
-  </ul>
 </div>
-
-  

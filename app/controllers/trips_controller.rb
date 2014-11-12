@@ -6,7 +6,6 @@ include ForecastHelper
   end
 
   def show
-
     @trip = Trip.find(params[:id])
     @invite = Invite.new
     @resort = Resort.find(@trip.resort_id)

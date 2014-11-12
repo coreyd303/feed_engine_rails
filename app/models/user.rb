@@ -15,10 +15,11 @@ class User < ActiveRecord::Base
   end
 
   def get_insta_id
-    binding.pry
-    id = InstaGetId.new.perform(self.instagram_username)
-    self.instagram_id = id
-    self.save
+    if self.instagram_username
+      id = InstaGetId.new.perform(self.instagram_username)
+      self.instagram_id = id
+      self.save
+    end
   end
 
   def self.from_omniauth(auth)
