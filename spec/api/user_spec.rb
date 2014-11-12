@@ -1,11 +1,10 @@
 require 'rails_helper'
 
-RSpec.describe Api::V1::TripsController, :type => :api do
-include SpecBuilders
+RSpec.describe Api::V1::UsersController, :type => :api do
 include ApiHelper
 
   before(:each) do
-    @user  = make_user
+    @user  = create(:user)
     @json  = @user.to_json
     @count = User.count
   end

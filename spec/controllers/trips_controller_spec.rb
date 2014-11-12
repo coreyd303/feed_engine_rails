@@ -1,11 +1,15 @@
 require 'rails_helper'
-require 'rails_helper'
 
 RSpec.describe TripsController, :type => :controller do
-include SpecBuilders
 
   before(:each) do
-    @trip = make_trip
+    15.times do
+      create(:trip)
+    end
+
+    @resort = create(:resort)
+    @trip   = Trip.first
+    @trips  = Trip.all
   end
 
   describe "GET index" do
@@ -25,7 +29,6 @@ include SpecBuilders
       get :show, id: @trip.id
       expect(assigns(:trip)).to   eq(@trip)
       expect(assigns(:resort)).to eq(@resort)
-      expect(assigns(:instas)).to eq(@instas)
     end
 
     it 'renders the show template' do
