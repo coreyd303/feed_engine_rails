@@ -3,7 +3,6 @@
       <div class="form-group">
         <%= f.text_area   :to , :class => 'form-control', :placeholder => "friends@example.com" %>
       </div>
-      <%= f.hidden_field :from, value: current_user.email %>
       <%= f.hidden_field :trip, value: @trip.id %>
       <div class="form-group">
         <%= f.text_field  :subject , :class => 'form-control', :placeholder => "Subject" %>

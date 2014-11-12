@@ -4,7 +4,6 @@ class InvitesController < ApplicationController
     TripInviter.invite(@invite.trip,
                        @invite.user = current_user,
                        @invite.to,
-                       @invite.from,
                        @invite.subject,
                        @invite.body
                        ).deliver

@@ -1,10 +1,10 @@
 class TripInviter < ActionMailer::Base
-  default from: "mailer@snowcial.com"
+  default from: "friendlypostman@snowcial.com"
 
-  def invite(trip,user,to,from,subject,body)
+  def invite(trip,user,to,subject,body)
     @user = user
     @trip = trip
-    mail(to: to, from: from, subject: subject)
+    mail(to: to, subject: subject)
   end
 
 end
