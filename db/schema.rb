@@ -16,7 +16,6 @@ ActiveRecord::Schema.define(version: 20141111213842) do
   create_table "insta", force: true do |t|
     t.integer  "insta_id"
     t.integer  "user_id"
-    t.integer  "trip_id"
     t.string   "insta_url"
     t.string   "thumbnail_url"
     t.string   "full_size_url"
@@ -57,6 +56,7 @@ ActiveRecord::Schema.define(version: 20141111213842) do
     t.string   "twitter_username"
     t.string   "epic_mix_username"
     t.string   "epic_mix_password"
+    t.string   "image"
     t.string   "uid"
     t.string   "provider"
     t.datetime "created_at"
