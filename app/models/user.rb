@@ -36,4 +36,9 @@ class User < ActiveRecord::Base
       user.avatar            = auth["info"]["image"]
     end
   end
+
+  def self.find_matches(query)
+    query = query.downcase
+    where("lower(name) like ?", "%#{query}%")
+  end
 end
