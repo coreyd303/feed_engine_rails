@@ -3,8 +3,11 @@ Rails.application.routes.draw do
   root to: 'static_pages#index'
 
   get '/auth/:provider/callback', to: 'sessions#create'
-
-  resources :sessions
+  get 'signout', to: 'sessions#destroy', as: 'signout'
+  get '/search', to: 'users#search'
+  
+  resources :sessions, only: [:create, :destroy]
+  resources :invites, only: [:create]
 
   namespace :api do
     namespace :v1 do
@@ -13,6 +16,10 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :trips
+  resources :trips do
+    member do
+      get :join
+    end
+  end
   resources :users
 end

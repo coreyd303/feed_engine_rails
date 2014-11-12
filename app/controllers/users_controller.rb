@@ -19,14 +19,44 @@ class UsersController < ApplicationController
 
   def create
     @user = User.create!(user_params)
+    flash[:notice] = "Your profile is totally legit bro!"
     redirect_to user_path(@user)
+  end
+
+  def edit
+    @user = User.find(params[:id])
+  end
+
+  def update
+    @user = User.find(params[:id])
+    @user.update(user_params)
+    flash[:notice] = "Your profile has be updated bro!"
+    redirect_to user_path(@user)
+  end
+
+  def destroy
+    @user = User.find(params[:id])
+    @user.destroy
+    flash[:notice] = "Your profile has been abolished"
+    redirect_to users_path
+  end
+
+  def search
+    @users = User.find_matches(params[:query])
   end
 
 private
 
+  def user_has_trips?(user)
+    if user.trips != nil
+      @user_trips = user.trips
+    end
+  end
+
   def user_params
     params.require(:user).permit(:name, 
-                                 :email, 
+                                 :email,
+                                 :avatar,
                                  :epic_mix_username, 
                                  :epic_mix_password)
   end

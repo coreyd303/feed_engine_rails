@@ -1,8 +1,9 @@
 class User < ActiveRecord::Base
   has_and_belongs_to_many :trips
   has_many :instas
+  mount_uploader :avatar, AvatarUploader
 
-#  after_create :get_insta_id
+  after_create :get_insta_id
 
   def has_epic_mix_data?
     epic_mix_username
@@ -10,13 +11,27 @@ class User < ActiveRecord::Base
 
   def epic_mix_client
     @epic_mix_client = Epicmix::Client.new(epic_mix_username, 
-                                  epic_mix_password)
+                                           epic_mix_password)
+  end
+
+  def get_tweets(date)
+    client = Twitter::REST::Client.new do |config|
+      config.consumer_key        = Figaro.env.twitter_id 
+      config.consumer_secret     = Figaro.env.twitter_secret 
+      config.access_token        = Figaro.env.twitter_access_token 
+      config.access_token_secret = Figaro.env.twitter_access_token_secret
+    end
+
+    tweets = client.user_timeline(twitter_username)
+    tweets.select { |t| t.created_at.strftime('%m/%d/%Y') == date.strftime('%m/%d/%Y') }
   end
 
   def get_insta_id
-    id = InstaGetId.new.perform(self.instagram_username)
-    self.instagram_id = id
-    self.save
+    if self.instagram_username
+      id = InstaGetId.new.perform(self.instagram_username)
+      self.instagram_id = id
+      self.save
+    end
   end
 
   def self.from_omniauth(auth)
@@ -28,8 +43,14 @@ class User < ActiveRecord::Base
       user.provider         = auth["provider"]
       user.uid              = auth["uid"]
       user.name             = auth["info"]["name"]
+      user.email            = auth["info"]["email"]
       user.twitter_username  = auth["info"]["nickname"]
-      user.image            = auth["info"]["image"]
+      user.avatar            = auth["info"]["image"]
     end
+  end
+
+  def self.find_matches(query)
+    query = query.downcase
+    where("lower(name) like ?", "%#{query}%")
   end
 end

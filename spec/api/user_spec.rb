@@ -7,7 +7,7 @@ describe 'User API' do
     get "/api/v1/users/#{user.id}.json"
     expect(response).to be_success
 
-    expect(json['first_name']).to eq(user.first_name)
+    expect(user['name']).to eq(user.name)
   end
 
   it "can create a user" do
@@ -23,13 +23,13 @@ describe 'User API' do
 
   it "can update a user" do
     user = create(:user)
-    user.first_name = "New name!"
+    user.name = "New name!"
     json = user.to_json
     
     put "/api/v1/users/#{user.id}.json", json, {'CONTENT_TYPE' => "application/json", 'ACCEPT' => 'application/json'}
 
     expect(response).to be_success
-    expect(user.first_name).to eq("New name!")
+    expect(user.name).to eq("New name!")
   end
 
   it "can destroy a user" do

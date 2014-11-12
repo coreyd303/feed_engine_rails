@@ -1,0 +1,8 @@
+<% @trips.each do |trip| %>
+<div class='jumbotron site-text'>
+  <div> <%= link_to trip.name, trip_path(trip) %></div>
+  <div> <%= trip.description %></div> 
+  <div>  <%= trip.trip_location %></div>
+  <div><%= trip.date.strftime("%m / %d / %Y")%></div>
+</div>
+<% end %>
