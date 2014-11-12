@@ -1,16 +1,16 @@
 class TripsController < ApplicationController
-include ForecastHelper
 
   def index
     @trips = Trip.sort_by_date
   end
 
   def show
-    @trip = Trip.find(params[:id])
-    @invite = Invite.new
-    @resort = Resort.find(@trip.resort_id)
-    @instas = @trip.instas
-    trip_forecast(@trip)
+    @trip     = Trip.find(params[:id])
+    @invite   = Invite.new
+    @resort   = Resort.find(@trip.resort_id)
+    @instas   = @trip.instas
+    binding.pry
+    @forecast = ForecastWorker.perform_async(@trip.id)
   end
 
   def new

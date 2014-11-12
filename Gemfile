@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 gem 'rails', '~> 4.1.4'
 gem 'pg'
 gem 'therubyracer',  platforms: :ruby
+gem 'execjs'
 gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'active_model_serializers'
 gem 'instagram'
@@ -28,15 +29,14 @@ gem 'rmagick', '~>2.13.3', :require => false
 gem 'simplecov', :require => false, :group => :test
 gem "codeclimate-test-reporter", group: :test, require: nil
 gem 'twitter'
+gem 'faker'
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.0.0'
   gem 'spring'
   gem 'pry'
-  gem 'faker'
   gem 'better_errors'
   gem 'binding_of_caller'
-  gem 'sqlite3'
 end
 
 group :test do
