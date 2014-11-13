@@ -15,7 +15,7 @@ RSpec.describe TripsController, :type => :controller do
   describe "GET index" do
     it 'assigns @trips' do
       get :index
-      expect(assigns(:trips)).to eq([@trips])
+      expect(assigns(:trips)).to eq(@trips)
     end
 
     it 'renders the index template' do

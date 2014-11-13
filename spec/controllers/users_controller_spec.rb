@@ -15,7 +15,7 @@ RSpec.describe UsersController, :type => :controller do
   describe "GET index" do
     it 'assigns @users' do
       get :index
-      expect(assigns(:users)).to eq([@users])
+      expect(assigns(:users)).to eq(@users)
     end
 
     it 'renders the index template' do
