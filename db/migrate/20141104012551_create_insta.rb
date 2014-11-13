@@ -9,6 +9,9 @@ class CreateInsta < ActiveRecord::Migration
       t.string :full_size_url
 
       t.timestamps
+
+      t.index :user_id
+      t.index :trip_id
     end
   end
 end

@@ -27,6 +27,9 @@ ActiveRecord::Schema.define(version: 20141111213842) do
     t.datetime "updated_at"
   end
 
+  add_index "insta", ["trip_id"], name: "index_insta_on_trip_id", using: :btree
+  add_index "insta", ["user_id"], name: "index_insta_on_user_id", using: :btree
+
   create_table "resorts", force: true do |t|
     t.string   "name"
     t.float    "lat"

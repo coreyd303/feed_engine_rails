@@ -1,0 +1,5 @@
+<h2>Current Forecast for <%= @resort.name %></h2>
+      Summary: <%= @forecast [:hourly][:summary] %><br/>
+      Precipitation: <%= @forecast [:currently][:precipType] %><br/>
+      Temperature: <%= @forecast [:currently][:temperature] %><br/>
+      Windspeed: <%= @forecast [:currently][:windSpeed] %>
