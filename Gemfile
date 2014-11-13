@@ -28,12 +28,13 @@ gem 'rmagick', '~>2.13.3', :require => false
 gem 'simplecov', :require => false, :group => :test
 gem "codeclimate-test-reporter", group: :test, require: nil
 gem 'twitter'
+gem 'faker'
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.0.0'
   gem 'spring'
   gem 'pry'
-  gem 'faker'
+
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'sqlite3'

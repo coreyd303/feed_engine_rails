@@ -5,10 +5,23 @@ class Seed
     @users_count    = users_count
     @trips_count    = trips_count
     @users_per_trip = users_per_trip
+    make_a_user
+    make_a_trip
     generate_users
     generate_trips
     add_users_to_trips
     generate_resorts
+  end
+
+  def make_a_user
+    user = User.create(name:  "David Lesh",
+                       email: "Lesh@example.com")
+  end
+
+  def make_a_trip
+    trip = Trip.create(name: "Bro Down",
+                       description: "Show Down",
+                       resort_id: 1)
   end
 
   def generate_users
