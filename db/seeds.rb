@@ -1,7 +1,7 @@
 class Seed
   attr_reader :users_count, :trips_count, :users_per_trip
 
-  def initialize(users_count = 100, trips_count = 50, users_per_trip = 5)
+  def initialize(users_count = 10, trips_count = 5, users_per_trip = 5)
     @users_count    = users_count
     @trips_count    = trips_count
     @users_per_trip = users_per_trip
@@ -15,7 +15,8 @@ class Seed
     users_count.times do |i|
       user = User.create(name: "#{Faker::Name.first_name} #{Faker::Name.last_name}",
                          email: Faker::Internet.email,
-                         twitter_username: twitter_handles.sample
+                         twitter_username: twitter_handles[i],
+                         instagram_username: insta_usernames[i]
                         )
     end
     puts "#{users_count} users created"
@@ -67,6 +68,107 @@ end
                            ])
     puts "18 resorts added"
   end
+  
+def insta_usernames
+%w(life_coach_derrick
+olegkristya
+theeastermonster
+snowboardingstories
+horseshoeresort
+amandaclark101
+antoineg_73
+crystalxsumsum
+renrod612
+jackandjillholidays
+den_is_dead
+usoutdoor
+snowwarriors
+vosstudios
+xrectx
+den_is_dead
+sleep.shred.repeat
+oginty
+trollhaugentroll
+kamarkaye
+ilbrunoooo
+corowright
+iresortapp
+the_day_after_tomosiow
+olgafayzulina
+biskolik
+jiujitsu_4life
+kalyssa3
+xrectx
+zinnekens_waffles
+jorgeislandia
+mattidago
+pakems1
+jclove7
+ariaa28
+snowtube.dk
+lovelace_g
+heyheyhaileyyyyy
+kyle_brown16
+wavrekite
+scarpana
+xtrmsport
+dankeenoo
+packotheunicorn
+hakubaphotography
+0zymand1as
+courtnylang1
+nld3005
+bartzbenjamin
+zoe_kempster
+jackstuckey1234
+eleanor630front
+blb529
+underground_sports
+johnthornton94
+martlet
+honubelle
+kiz166
+sanjuanmtnguides
+piera_0810
+hannerage
+siofracawley
+abbieeamonson
+getluckifitness
+serpopal
+brynnnn19
+laurel3lizabeth
+domenicofrr
+kelly_kel133
+brooke_renee115
+mollybever
+karinnaecaio
+zonaooohlala19
+cuteandfitness
+mandy_970
+rachybb
+sisterchrissy
+ahelm3
+mirko.lomonaco
+williescanlon
+mirko.lomonaco
+thekon_lyfe
+mirko.lomonaco
+tburky1
+mirko.lomonaco
+annabananaaa169
+shred_the_rockies
+aliving00
+aa_boulder
+tiffanyalanoorri
+celese.paid
+mirko.lomonaco
+lividsmokeshop
+sickyy12alec
+constance_patience
+supahlucario
+euricoaraujo_oficial
+crystalselina91)
+end
 
   def twitter_handles
     %w(

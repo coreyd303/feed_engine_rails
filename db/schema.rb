@@ -73,6 +73,7 @@ ActiveRecord::Schema.define(version: 20141113184721) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "avatar"
+    t.string   "image"
   end
 
   add_index "users", ["instagram_id"], name: "index_users_on_instagram_id", using: :btree

@@ -49,7 +49,7 @@ class User < ActiveRecord::Base
       user.name              = auth["info"]["name"]
       user.email             = auth["info"]["email"]
       user.twitter_username  = auth["info"]["nickname"]
-      user.avatar            = auth["info"]["image"]
+      user.image            = auth["info"]["image"]
     end
   end
 

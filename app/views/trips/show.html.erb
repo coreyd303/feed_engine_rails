@@ -21,18 +21,19 @@
     <div class="col-md-8" id="feed-title">
       <%= render partial: 'photo_feed' %>
     </div>
+  </div>
     <div class="col-md-3">
       <div class="sidebar-offcanvas">
         <div class="list-group">
           <% if @trip.has_user?(current_user) %>
-            <li class="list-group-item" id="trip"><h2 style="text-align: center;">Invite friends or<br/>Join this trip</h2></li>
+            <li class="list-group-item" id="trip"><h2 style="text-align: center;">Invite friends</h2></li>
             <%= render partial: 'email_form' %>
         <% end %>
-          <li class="list-group-item" id="trip">
+          <li class="list-group-item" id="users">
             <h2>
               Who's going 
               <% if user_can_join(@trip) %>
-                <%= link_to "Join!", join_trip_path(@trip), class: "btn btn-info pull-right" %>
+                <%= link_to "Join this trip!", join_trip_path(@trip), class: "btn btn-primary pull-right" %>
               <% end %>
             </h2>
           </li>

@@ -2,11 +2,15 @@
   <div class="col-md-8">
     <div class="panel" id="users">
       <div class="panel-heading text">
-        <img class="img-circle" src=<%="#{@user.image}"%> style="width: 140px; height: 140px;">
+        <img class="img-circle" src=<%="#{@user.avatar}"%> style="width: 140px; height: 140px;">
         <h1 class="pull-right"><%= @user.name %></h1>
       </div>
     </div>
     <div class="jumbotron">
+      <div class="person-btn">
+        <%= link_to "Edit Profile", edit_user_path(@user), class: "btn btn-sm btn-warning" %>
+        <%= link_to "Delete Profile", user_path(@user), method: :delete, class: "btn btn-sm btn-danger" %>
+      </div>
       <h3 class="text">Add your Instagram account</h3>
         <div class="col-md-6" id="instagram">
           <%= form_for @user do |f| %>
@@ -19,7 +23,6 @@
             <% end %>
           </div>
         </div>
-      <% if @user.has_epic_mix_data? %>
     <div class="col-lg-6">
       <div class="mix-data">
         <% if @user.has_epic_mix_data? %>
@@ -28,27 +31,16 @@
           <p>Add your epic mix info to your profile to see it here!</p>
         <% end %>
       </div>
-      <% end %>
-      <div class="person-btn">
-        <%= link_to "Edit Profile", edit_user_path(@user), class: "btn btn-sm btn-warning" %>
-        <%= link_to "Delete Profile", user_path(@user), method: :delete, class: "btn btn-sm btn-danger" %>
-      </div>
     </div>
   <div class="col-md-4">
     <div class="user-scroll-feed">
-  </div>
-</div>
-
-<div class="jumbotron">
-  <h3 class="site-text">Your trip history</h3>
-    <div class="row site-txt-b">
     <% @trips.each do |trip| %>
-      <div class="thumbnail">
+      <div class="thumbnail" id="trip">
         <div class="caption">
           <h2 class="text pull-right"><%= trip.date.strftime('%b') %></h2> 
           <h2 class="text pull-right"><%= trip.date.strftime('%d') %></h2>
           <h3><%= link_to trip.name, trip_path(trip) %></h3>
-          <h4 class="text"><%= trip.trip_location %></h4>
+          <h4 class="text"><%= trip.resort.name %></h4>
         </div>
       </div>
     <% end %>
