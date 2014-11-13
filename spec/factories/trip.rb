@@ -1,8 +1,8 @@
 FactoryGirl.define do
   factory :trip, class: Trip do
-    name "Shred Breck, brah"
-    description "It'll be the best shredding ever!"
-    date Time.now.to_date
-    trip_location "Breckenridge, CO"
+    name Faker::Lorem.sentence(3)
+    description Faker::Lorem.paragraph
+    date Faker::Date.forward(30)
+    resort_id 1
   end
 end
