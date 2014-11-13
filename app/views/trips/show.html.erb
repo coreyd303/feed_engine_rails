@@ -3,18 +3,23 @@
     <div class="panel" id="trip">
       <div class="panel-heading">
         <%= image_tag @trip.coverphoto, class: "trip-img pull-right" %>
-        <h1><%= @trip.name %></h1>
-        <p class="trip-des"><%= @trip.description %></p><br/>
-        <p class="trip-des"><%= @trip.date.strftime("%m / %d / %Y")%></p><br/>
-        <p class="trip-des"><% if @resort %>
-           <%= @resort.name %></p>
+        <h1 style="text-align: center;"><%= @trip.name %></h1>
+        <% if current_user.id == @trip.owner_id %>
+        <div style="text-align: center;">
+          <%= link_to "Edit Trip", edit_trip_path(@trip), class: "btn btn-sm btn-warning" %>
+          <%= link_to "Delete Trip", trip_path(@trip), method: :delete, class: "btn btn-sm btn-danger" %>
+        </div>
+        <% end %>
+        <p><h4 class="trip-date">We are going to <%= @resort.name %> on <%= @trip.date.strftime("%m / %d / %Y")%></h4></p><br/>
+        <p class="trip-des"><%= @trip.description %></p>
           <%= render partial: "forecast" %>
-      <% end %>
       </div>
     </div>
+
     <div class="col-md-5">
       <%= render partial: 'twitter_feed' %>
     </div>
+
     <div class="col-md-7">
       <div class="thumbnail" id="feed">
         <h1>Some Instas</h1>
@@ -26,16 +31,17 @@
       </div>
     </div>
   </div>
+
   <div class="col-md-3">
     <div class="sidebar-offcanvas">
       <div class="list-group">
         <% if @trip.has_user?(current_user) %>
-          <li class="list-group-item" id="trip"><h2>Invite friends</h2></li>
+          <li class="list-group-item" id="trip"><h2 style="text-align: center;">Invite friends or<br/>Join this trip</h2></li>
           <%= render partial: 'email_form' %>
         <% end %>
         <li class="list-group-item" id="trip">
           <h2>
-            Who's going 
+            Who's Going? 
             <% if user_can_join(@trip) %>
               <%= link_to "Join!", join_trip_path(@trip), class: "btn btn-info pull-right" %>
             <% end %>

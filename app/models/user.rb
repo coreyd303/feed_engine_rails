@@ -1,12 +1,16 @@
 class User < ActiveRecord::Base
   has_and_belongs_to_many :trips
   has_many :instas
+
+  has_many :trips, foreign_key: :owner_id
+  
   mount_uploader :avatar, AvatarUploader
 
   after_create :get_insta_id
 
   def has_epic_mix_data?
-    epic_mix_username
+    epic_mix_username != nil
+    epic_mix_password != nil
   end
 
   def epic_mix_client

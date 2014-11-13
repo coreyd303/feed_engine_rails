@@ -1,5 +1,6 @@
-<h2>Current Forecast for <%= @resort.name %></h2>
-      <p class="trip-des">
+<h2 class="site-text">Current Forecast for:<br/> <%= @resort.name %></h2>
+    
+      <p class="forecast">
         Summary: <%= @forecast [:hourly][:summary] %><br/>
         Precipitation: <%= @forecast [:currently][:precipType] %><br/>
         Temperature: <%= @forecast [:currently][:temperature] %><br/>

@@ -1,20 +1,27 @@
 <div class="jumbotron">
-  <div class="row"
-    <div class="thumbnail">
-      <h2 class="site-title">Welcome <%= @user.name %></h2>
-      <%= image_tag @user.avatar, class: "profile-img" %>
+  <div class="row">
+    <div class="col-lg-6">
+      <div class="person">
+        <h2 class="site-title">Welcome <%= @user.name %></h2>
+        <%= image_tag @user.avatar, class: "profile-img" %>
+      </div>
     </div>
-    <% @trips.each do |trip| %>
-    <div class="float-rt">
-          <%= link_to trip.name, trip_path(trip) %><br/>
-      <% end %>
+    <div class="col-lg-6">
+      <div class="mix-data">
+        <% if @user.has_epic_mix_data? %>
+          <%= render partial: "epic_mix_data", client: @user.epic_mix_client %>
+        <% else %>
+          <p>Add your epic mix info to your profile to see it here!</p>
+        <% end %>
+      </div>
+      <div class="person-btn">
+        <%= link_to "Edit Profile", edit_user_path(@user), class: "btn btn-sm btn-warning" %>
+        <%= link_to "Delete Profile", user_path(@user), method: :delete, class: "btn btn-sm btn-danger" %>
+      </div>
     </div>
   </div>
 </div>
 
-<% if @user.has_epic_mix_data? %>
-  <%= render partial: epic_mix_data, client: @user.epic_mix_client %>
-<% end %>
 
 <div class="jumbotron">
   <h3 class="site-text">Your trip history</h3>
@@ -25,7 +32,6 @@
           <div class="caption">
             <%= link_to trip.name, trip_path(trip) %>
             <%= trip.date %>
-            <%= trip.trip_location %>
           </div>
         </div>
       </div>
