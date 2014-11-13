@@ -79,7 +79,7 @@ html, body {
 .thumbnail {
    background: rgba(0, 0, 0, 0.8);
    border-width: 0;
-   height: 200px;    
+   height: 400px;    
 }
 
 .navbar {
@@ -151,6 +151,13 @@ html, body {
   margin-top: 10px;
 }
 
+// trip index
+
+#thumb {
+  height: 150;
+  width: 150;
+}
+
 // trip show page
 
 .trip-img {
@@ -173,3 +180,6 @@ html, body {
   margin-top:12px;
 }
 
+.trip-des {
+  color: #297ACC;
+}

@@ -2,7 +2,7 @@ class Trip < ActiveRecord::Base
   validates :resort_id, presence: true
   
   has_and_belongs_to_many :users
-  has_one :resort
+  belongs_to :resort
   has_many :instas
 
   mount_uploader :coverphoto, CoverphotoUploader

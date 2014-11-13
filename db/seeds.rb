@@ -26,8 +26,7 @@ class Seed
       trip = Trip.create(name: Faker::Company.name,
                          description: Faker::Lorem.sentences.join,
                          date: Faker::Time.backward(rand(10), :morning),
-                         trip_location: "Breckenridge",
-                         resort_id: rand(18)
+                         resort_id: rand(1..18)
                         )
     end
     puts "#{trips_count} Trips created"
@@ -69,142 +68,145 @@ end
     puts "18 resorts added"
   end
 
-def twitter_handles
-  %w(Kc_evilball
-bsidemobi
-StridingEdgeSB 
-jksportskit
-Snowboardly
-youngteddi
-joeflatt
-SNSC
-JukeSnow 
-GinnyKoppenhol
-SebToots
-Snowpatriots
-JohnniDweets
-wilhelmashley 
-MistAdventures 
-rasjosh10
-MistAdventures 
-ITWPassport
-OutdoorGearDOTD 
-TimBesecker
-Sportmondo
-JohnniDweets 
-angrysnowboard 
-Meredith1Gareth 
-IllrushClothing
-OddportEmporium
-arocwebdesigns
-BibimLab 
-FSTVSNOW
-levisandmaier
-ImpatientsSport
-TheLoT1080
-VernaeveK
-JebigaDesign
-ManoloNajera
-transformgloves
-Taz_Wilde
-OutdoorGearDOTD
-JohnniDweets
-PerdueRyan
-TheRocinante
-Kontra_Apparel
-Alexithymic_L
-BanffDeals
-Capita686
-BlackbarryO_o
-Fozz26
-ShannonReports
-EChristensen11
-chelcnicole11
-StPaulSnowboard
-yes_snowboards
-actionrideshop
-MikkTol
-ShannonReports
-boardparadise
-JohnniDweets
-MattCrysler
-KatieTsuyuki
-pandagreens
-Patrycia1986
-ScottMartin_org
-my5pillars
-schel74
-angrysnowboard
-AdamGrisedale
-Matt_Belair
-pinkthor17
-The_Blue_Life
-GranbyRanch
-maggiesueee
-365Boarding
-afsoutdoors
-Dovgoteles
-ajwegrz
-OutdoorGearDOTD
-FirstTracksMag
-Worldwideinsure
-ScottMartin_org
-AnalogSnow
-OWEsnowboarding
-finishgangster
-AdamRacine37
-ButtaLtd
-Severan
-2cuteink
-trnkaste
-OZSnowboards
-jkbodi
-Adaptiveathlete
-solsticesupply
-MatejMaruka
-cassie_rae7
-TurntUpTommy34
-WIBUCKETLIST
-MatejMaruka
-liftstudios
-supdvni
-BoardsportsCan
-Snowboardly
-sportisolkysten
-ILoveGoGlove
-tallman1880
-hallerm22
-11_Jordan_11
-kimmath2
-Foxhendo
-buratravel
-Viaggiando_nM
-AlpineEthos
-AdrenalineCo
-FreethePowder
-solsticesupply
-Phil_Honeyman
-AnthonyRiso
-FindTransfers
-theonerealdeezy
-flippy_x
-jmfoust
-tweetlypics
-InfernoMorzine
-xtremevitoria
-CeltekUK
-redbullSUI
-MrMeribel
-solsticesupply
-onboardmag
-my5pillars
-VladisDJi
-ellharris
-thegstreet_com
-KristiansGizmo
-Starma__
-CheshHens_Stags
-welovecheshire
-IzzyCheshire)
-end
+  def twitter_handles
+    %w(
+      Kc_evilball
+      bsidemobi
+      StridingEdgeSB 
+      jksportskit
+      Snowboardly
+      youngteddi
+      joeflatt
+      SNSC
+      JukeSnow 
+      GinnyKoppenhol
+      SebToots
+      Snowpatriots
+      JohnniDweets
+      wilhelmashley 
+      MistAdventures 
+      rasjosh10
+      MistAdventures 
+      ITWPassport
+      OutdoorGearDOTD 
+      TimBesecker
+      Sportmondo
+      JohnniDweets 
+      angrysnowboard 
+      Meredith1Gareth 
+      IllrushClothing
+      OddportEmporium
+      arocwebdesigns
+      BibimLab 
+      FSTVSNOW
+      levisandmaier
+      ImpatientsSport
+      TheLoT1080
+      VernaeveK
+      JebigaDesign
+      ManoloNajera
+      transformgloves
+      Taz_Wilde
+      OutdoorGearDOTD
+      JohnniDweets
+      PerdueRyan
+      TheRocinante
+      Kontra_Apparel
+      Alexithymic_L
+      BanffDeals
+      Capita686
+      BlackbarryO_o
+      Fozz26
+      ShannonReports
+      EChristensen11
+      chelcnicole11
+      StPaulSnowboard
+      yes_snowboards
+      actionrideshop
+      MikkTol
+      ShannonReports
+      boardparadise
+      JohnniDweets
+      MattCrysler
+      KatieTsuyuki
+      pandagreens
+      Patrycia1986
+      ScottMartin_org
+      my5pillars
+      schel74
+      angrysnowboard
+      AdamGrisedale
+      Matt_Belair
+      pinkthor17
+      The_Blue_Life
+      GranbyRanch
+      maggiesueee
+      365Boarding
+      afsoutdoors
+      Dovgoteles
+      ajwegrz
+      OutdoorGearDOTD
+      FirstTracksMag
+      Worldwideinsure
+      ScottMartin_org
+      AnalogSnow
+      OWEsnowboarding
+      finishgangster
+      AdamRacine37
+      ButtaLtd
+      Severan
+      2cuteink
+      trnkaste
+      OZSnowboards
+      jkbodi
+      Adaptiveathlete
+      solsticesupply
+      MatejMaruka
+      cassie_rae7
+      TurntUpTommy34
+      WIBUCKETLIST
+      MatejMaruka
+      liftstudios
+      supdvni
+      BoardsportsCan
+      Snowboardly
+      sportisolkysten
+      ILoveGoGlove
+      tallman1880
+      hallerm22
+      11_Jordan_11
+      kimmath2
+      Foxhendo
+      buratravel
+      Viaggiando_nM
+      AlpineEthos
+      AdrenalineCo
+      FreethePowder
+      solsticesupply
+      Phil_Honeyman
+      AnthonyRiso
+      FindTransfers
+      theonerealdeezy
+      flippy_x
+      jmfoust
+      tweetlypics
+      InfernoMorzine
+      xtremevitoria
+      CeltekUK
+      redbullSUI
+      MrMeribel
+      solsticesupply
+      onboardmag
+      my5pillars
+      VladisDJi
+      ellharris
+      thegstreet_com
+      KristiansGizmo
+      Starma__
+      CheshHens_Stags
+      welovecheshire
+      IzzyCheshire
+    )
+  end
+
 Seed.new

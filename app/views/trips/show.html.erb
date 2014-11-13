@@ -4,11 +4,10 @@
       <div class="panel-heading">
         <%= image_tag @trip.coverphoto, class: "trip-img pull-right" %>
         <h1><%= @trip.name %></h1>
-        <%= @trip.description %>
-        <%= @trip.date.strftime("%m / %d / %Y")%><br/>
-        <%= @trip.trip_location %>
-        <% if @resort %>
-        <%= @resort.name %>
+        <p class="trip-des"><%= @trip.description %></p><br/>
+        <p class="trip-des"><%= @trip.date.strftime("%m / %d / %Y")%></p><br/>
+        <p class="trip-des"><% if @resort %>
+           <%= @resort.name %></p>
           <%= render partial: "forecast" %>
       <% end %>
       </div>
