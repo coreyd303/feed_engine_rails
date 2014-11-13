@@ -15,12 +15,13 @@ class Trip < ActiveRecord::Base
     users << user
   end
 
-  def instagram
-    self.users.each do |user|
-      if user.instagram_id
-       GetUserInstas.new.perform(user, self) 
-      end
-    end
+  def photos
+    photos = self.users.map do |user|
+              if user.instagram_id
+                GetUserInstas.new.perform(user, self) 
+              end
+            end
+    photos.flatten
   end
 
   def get_tweets(date)
@@ -29,6 +30,7 @@ class Trip < ActiveRecord::Base
     end
     tweets.flatten.sort_by { |t| t.created_at }.reverse
   end
+
 
   def self.sort_by_date
     all.sort_by { |trip| trip.date }

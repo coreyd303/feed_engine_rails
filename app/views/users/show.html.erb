@@ -1,34 +1,42 @@
-<div class="jumbotron">
-  <div class="row"
-    <div class="thumbnail">
-      <h2 class="site-title">Welcome <%= @user.name %></h2>
-      <%= image_tag @user.avatar, class: "profile-img" %>
+<div class="row">
+  <div class="col-md-8">
+    <div class="panel" id="users">
+      <div class="panel-heading text">
+        <img class="img-circle" src=<%="#{@user.image}"%> style="width: 140px; height: 140px;">
+        <h1 class="pull-right"><%= @user.name %></h1>
+      </div>
     </div>
-    <% @trips.each do |trip| %>
-    <div class="float-rt">
-          <%= link_to trip.name, trip_path(trip) %><br/>
+    <div class="jumbotron">
+      <h3 class="text">Add your Instagram account</h3>
+        <div class="col-md-6" id="instagram">
+          <%= form_for @user do |f| %>
+            <div class="input-group">
+              <%= f.text_field :instagram_username, :class => "form-control", :placeholder => "snowcial" %>
+              <span class="input-group-btn">
+                <%= f.submit "Submit", :class => "btn btn-info" %>
+              </span>
+            </div>
+            <% end %>
+          </div>
+        </div>
+    <div class="jumbotron">
+      <% if @user.has_epic_mix_data? %>
+        <%= render partial: epic_mix_data, client: @user.epic_mix_client %>
       <% end %>
     </div>
   </div>
-</div>
-
-<% if @user.has_epic_mix_data? %>
-  <%= render partial: epic_mix_data, client: @user.epic_mix_client %>
-<% end %>
-
-<div class="jumbotron">
-  <h3 class="site-text">Your trip history</h3>
-    <div class="row site-txt-b">
+  <div class="col-md-4">
+    <div class="user-scroll-feed">
     <% @trips.each do |trip| %>
-      <div class="col-md-3">
-        <div class="thumbnail">
-          <div class="caption">
-            <%= link_to trip.name, trip_path(trip) %>
-            <%= trip.date %>
-            <%= trip.trip_location %>
-          </div>
+      <div class="thumbnail">
+        <div class="caption">
+          <h2 class="text pull-right"><%= trip.date.strftime('%b') %></h2> 
+          <h2 class="text pull-right"><%= trip.date.strftime('%d') %></h2>
+          <h3><%= link_to trip.name, trip_path(trip) %></h3>
+          <h4 class="text"><%= trip.trip_location %></h4>
         </div>
       </div>
     <% end %>
+  </div>
 </div>
 </div>

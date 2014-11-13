@@ -1,15 +1,17 @@
 
-<div class="panel panel-default">
+<div class="panel" id="feed">
   <div class="panel-heading">
     <h1>Twitter Feed</h1>
   </div>
 </div>
-<div class='twitter-feed'>
+<div class="scroll-feed">
 <% @trip.get_tweets(@trip.date).each do |t| %>
-<div class="thumbnail">
+<div class="thumbnail" id="feed">
       <div class="caption">
-        <p class="site-text"><%= t.created_at %></p>
-        <h3 class="site-text"><%= t.text %></h3>
+        <p class="text pull-right"><%= t.created_at.strftime('%l:%M %p') %></p>
+        <p><img class="img-circle" src=<%="#{t.user.profile_image_url}"%> style="width: 25px; height: 25px;"></p>
+        <h4 class="text"><%= "@#{t.user.screen_name}" %></h4>
+        <a href=<%= t.url %>><%= t.text %></a>
     </div>
   </div>
 <% end %>

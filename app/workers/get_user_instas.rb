@@ -6,11 +6,10 @@ class GetUserInstas
     @trip = trip
     @user = user
     feed = Instagram.get("https://api.instagram.com/v1/users/#{user.instagram_id}/media/recent", max_timestamp: max_time, min_timestamp: min_time)
-    feed_url = "https://api.instagram.com/v1/users/#{user.instagram_id}/media/recent/?max_timestamp=#{max_time}&min_timestamp=#{min_time}"
-    save_instas(feed, user, trip)
+    get_instas(feed, user, trip)
   end
 
-  def save_instas(feed, user, trip)
+  def get_instas(feed, user, trip)
     feed.map do |insta|
       # unless Insta.all.any? { |i| i.insta_url == insta['link']}
         Insta.new(insta_id: insta['user']['id'].to_i,

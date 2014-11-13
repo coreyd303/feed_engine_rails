@@ -17,18 +17,11 @@
       <% end %>
       </div>
     </div>
-    <div class="col-md-5">
+    <div class="col-md-4" id="feed-title">
       <%= render partial: 'twitter_feed' %>
     </div>
-    <div class="col-md-7">
-      <div class="thumbnail" id="feed">
-        <h1>Some Instas</h1>
-        <ul>
-          <% @instas.each do |pic| %>
-            <li><%= image_tag pic.thumbnail_url %><li> 
-          <% end %>
-        </ul>
-      </div>
+    <div class="col-md-8" id="feed-title">
+      <%= render partial: 'photo_feed' %>
     </div>
   </div>
   <div class="col-md-3">
@@ -38,17 +31,19 @@
           <li class="list-group-item" id="trip"><h2>Invite friends</h2></li>
           <%= render partial: 'email_form' %>
         <% end %>
-        <li class="list-group-item" id="trip">
-          <h2>
-            Who's going 
-            <% if user_can_join(@trip) %>
-              <%= link_to "Join!", join_trip_path(@trip), class: "btn btn-info pull-right" %>
+          <li class="list-group-item" id="trip">
+            <h2>
+              Who's going 
+              <% if user_can_join(@trip) %>
+                <%= link_to "Join!", join_trip_path(@trip), class: "btn btn-info pull-right" %>
+              <% end %>
+            </h2>
+          </li>
+          <div class="scroll-feed">
+            <% @trip.users.each do |user| %>
+              <li class="list-group-item" id="trip"><h4><%= link_to user.name, user_path(user) %></h4></li>
             <% end %>
-          </h2>
-        </li>
-        <% @trip.users.each do |user| %>
-          <li class="list-group-item" id="trip"><h4><%= link_to user.name, user_path(user) %></h4></li>
-        <% end %>
+          </div>
       </div>
     </div>
   </div>
