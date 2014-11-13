@@ -2,11 +2,11 @@ class TripsController < ApplicationController
 include ForecastHelper
 
   def index
-    @trips = Trip.sort_by_date
+    @trips = Trip.sort_by_date.reverse
   end
 
   def show
-    @trip = Trip.find(params[:id])
+    @trip   = Trip.find(params[:id])
     @invite = Invite.new
     @resort = Resort.find(@trip.resort_id)
     @instas = @trip.instas
@@ -14,17 +14,18 @@ include ForecastHelper
   end
 
   def new
-    @trip = Trip.new
+    @trip    = Trip.new
     @resorts = Resort.all
   end
 
   def create
-    @trip = Trip.create(trip_params)
+    @trip = Trip.create(trip_params.merge owner_id: current_user.id)
+    @trip.users << current_user
     if @trip.save
-      flash[:success] = "Your trip has been created bro!"
+      flash[:success] = "Your trip has been created, the stoke is high!"
       redirect_to trip_path(@trip)
     else
-      flash[:warning] = "Bummer bro, your trip ain't gonna happen!"
+      flash[:warning] = "Bummer, your trip ain't gonna happen, so gnar!"
       redirect_to new_trips_path
     end
   end
@@ -36,13 +37,15 @@ include ForecastHelper
   def update
     @trip = Trip.find(params[:id])
     @trip.update(trip_params)
-    flash[:success] = "Werd bro, your trip is totally up to date!"
+    flash[:success] = "Werd yo, your trip is totally up to date!"
     redirect_to trip_path(@trip)
   end
 
   def destroy
     @trip = Trip.find(params[:id])
     @trip.destroy
+    flash[:danger] = "Your trip has totally been abolished!"
+    redirect_to '/'
   end
 
   def join
@@ -58,6 +61,7 @@ private
                                  :description,
                                  :date,
                                  :resort_id,
-                                 :coverphoto)
+                                 :coverphoto,
+                                 :owner_id)
   end
 end

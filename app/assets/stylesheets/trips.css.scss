@@ -1,0 +1,44 @@
+/*
+  Place all the styles related to the matching controller here.
+  They will automatically be included in application.css.
+*/
+
+
+.trip-img {
+  height: 400px;
+  width: 400px;
+  box-shadow: 10px 10px 5px #888888;
+}
+
+.person{
+  text-align: center;
+}
+
+.person-btn {
+  margin-top: 50px;
+}
+
+.twitter-feed {
+  height:300px;
+  width:auto;
+  overflow:scroll;
+}
+
+.search-text-box {
+  opacity:0.4;
+  border-radius:15px;
+  color:#000;
+  text-align:center;
+  margin-top:12px;
+}
+
+.forecast{
+  font-size: 18px;
+  color: #297ACC;
+}
+
+.trip-des {
+  font-size: 18px;
+  color: #297ACC;
+  text-align: center;
+}

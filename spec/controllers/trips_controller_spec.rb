@@ -9,7 +9,7 @@ RSpec.describe TripsController, :type => :controller do
 
     @resort = create(:resort)
     @trip   = Trip.first
-    @trips  = Trip.all
+    @trips = Trip.sort_by_date.reverse
   end
 
   describe "GET index" do

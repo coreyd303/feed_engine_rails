@@ -15,19 +15,33 @@
               <span class="input-group-btn">
                 <%= f.submit "Submit", :class => "btn btn-info" %>
               </span>
-
             </div>
             <% end %>
           </div>
         </div>
       <% if @user.has_epic_mix_data? %>
-        <div class="jumbotron">
-          <%= render partial: epic_mix_data, client: @user.epic_mix_client %>
-        </div>
+    <div class="col-lg-6">
+      <div class="mix-data">
+        <% if @user.has_epic_mix_data? %>
+          <%= render partial: "epic_mix_data", client: @user.epic_mix_client %>
+        <% else %>
+          <p>Add your epic mix info to your profile to see it here!</p>
+        <% end %>
+      </div>
       <% end %>
+      <div class="person-btn">
+        <%= link_to "Edit Profile", edit_user_path(@user), class: "btn btn-sm btn-warning" %>
+        <%= link_to "Delete Profile", user_path(@user), method: :delete, class: "btn btn-sm btn-danger" %>
+      </div>
     </div>
   <div class="col-md-4">
     <div class="user-scroll-feed">
+  </div>
+</div>
+
+<div class="jumbotron">
+  <h3 class="site-text">Your trip history</h3>
+    <div class="row site-txt-b">
     <% @trips.each do |trip| %>
       <div class="thumbnail">
         <div class="caption">
@@ -38,6 +52,6 @@
         </div>
       </div>
     <% end %>
+    </div>
   </div>
-</div>
 </div>

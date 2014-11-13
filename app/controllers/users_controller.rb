@@ -7,8 +7,8 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
-    @trips = @user.trips
+    @user   = User.find(params[:id])
+    @trips  = @user.trips.reverse
     @client = Epicmix::Client.new(@user.epic_mix_username, 
                                   @user.epic_mix_password)
   end
@@ -18,8 +18,8 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.create!(user_params)
-    flash[:notice] = "Your profile is totally legit bro!"
+    @user          = User.create!(user_params)
+    flash[:notice] = "Your profile is totally legit!"
     redirect_to user_path(@user)
   end
 
@@ -30,7 +30,7 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     @user.update(user_params)
-    flash[:notice] = "Your profile has be updated bro!"
+    flash[:notice] = "Your profile has been fully updated, lookin freshy!"
     redirect_to user_path(@user)
   end
 
@@ -38,7 +38,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @user.destroy
     flash[:notice] = "Your profile has been abolished"
-    redirect_to users_path
+    redirect_to '/'
   end
 
   def search
@@ -60,6 +60,5 @@ private
                                  :epic_mix_username, 
                                  :epic_mix_password)
   end
-
 end
 
