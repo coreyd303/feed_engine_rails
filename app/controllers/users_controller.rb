@@ -41,6 +41,10 @@ class UsersController < ApplicationController
     redirect_to users_path
   end
 
+  def search
+    @users = User.find_matches(params[:query])
+  end
+
 private
 
   def user_has_trips?(user)

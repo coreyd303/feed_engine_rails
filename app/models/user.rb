@@ -14,6 +14,18 @@ class User < ActiveRecord::Base
                                            epic_mix_password)
   end
 
+  def get_tweets(date)
+    client = Twitter::REST::Client.new do |config|
+      config.consumer_key        = Figaro.env.twitter_id 
+      config.consumer_secret     = Figaro.env.twitter_secret 
+      config.access_token        = Figaro.env.twitter_access_token 
+      config.access_token_secret = Figaro.env.twitter_access_token_secret
+    end
+
+    tweets = client.user_timeline(twitter_username)
+    tweets.select { |t| t.created_at.strftime('%m/%d/%Y') == date.strftime('%m/%d/%Y') }
+  end
+
   def get_insta_id
     if self.instagram_username
       id = InstaGetId.new.perform(self.instagram_username)
@@ -35,5 +47,10 @@ class User < ActiveRecord::Base
       user.twitter_username  = auth["info"]["nickname"]
       user.avatar            = auth["info"]["image"]
     end
+  end
+
+  def self.find_matches(query)
+    query = query.downcase
+    where("lower(name) like ?", "%#{query}%")
   end
 end

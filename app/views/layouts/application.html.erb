@@ -24,7 +24,11 @@
       <ul class="nav navbar-nav">
         <li><%= link_to "Home", root_path %></li>
         <li><%= link_to "Trips", trips_path %></li>
-        <li><%= link_to "Users", users_path %></li>
+        <li>
+          <form action='/search' class='search'>
+            <input type='text' name='query' value='search users' class='search-text-box'> 
+          </form>
+        </li>
       </ul>
       <ul class="nav navbar-nav pull-right">
         <% if current_user %>
@@ -48,3 +52,11 @@
 
 </body>
 </html>
+<script>
+  $('.search-text-box').focus(function() {
+    $(this).val('');
+  })
+  $('.search-text-box').blur(function() {
+    $(this).val('search users');
+  })
+</script>
