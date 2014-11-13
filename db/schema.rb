@@ -42,6 +42,7 @@ ActiveRecord::Schema.define(version: 20141111164422) do
     t.string   "name"
     t.text     "description"
     t.datetime "date"
+    t.string   "trip_location"
     t.integer  "resort_id"
     t.datetime "created_at"
     t.datetime "updated_at"
