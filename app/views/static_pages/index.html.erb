@@ -2,10 +2,17 @@
 
 <div class="jumbotron">
   <h3 class="site-title">Welcome to Snowcial</h3>
-  <p class="site-title">
-    Snowcial is a social platform for the snowsports community. Snowcial provides you with a fast and easy way to create and share your winter adventures with your friends and the community at large. Create trips, invite your friends, share your adventures!
-  </p>
-  <%= link_to "Plan your first Trip!", new_trip_path, class: "btn btn-lg btn-primary" %>
+  <div class="row">
+    <div class="col-lg-8">
+      <p class="site-title">
+        Snowcial is a social platform for the snowsports community. Snowcial provides you with a fast and easy way to create and share your winter adventures with your friends and the community at large. Create trips, invite your friends, share your adventures!
+      </p>
+      <%= link_to "Plan your first Trip!", new_trip_path, class: "btn btn-lg btn-primary" %>
+    </div>
+    <div class="col-lg-4">
+      <img class="cover-img" src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQtOFNzwme9TAXgY0OCaU1WddamLKSmk-Ut-VVjGE5qIIcScEoNjQ" alt="Snowcial cover image">
+    </div>
+  </div>
 </div>
 
 <div class="jumbotron">
