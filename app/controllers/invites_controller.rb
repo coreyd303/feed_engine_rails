@@ -14,7 +14,13 @@ class InvitesController < ApplicationController
   private
 
   def safe_params
-    new_params = params.require(:invite).permit(:trip, :user, :to, :from, :subject, :body)
+    new_params        = params.require(:invite).permit(:trip, 
+                                                       :user, 
+                                                       :to, 
+                                                       :from, 
+                                                       :subject, 
+                                                       :body)
+    
     new_params[:trip] = Trip.find(params[:invite][:trip])
     new_params
   end

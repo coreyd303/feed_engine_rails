@@ -1,5 +1,4 @@
 class InstaMostRecentPost
-#  include Sidekiq::Worker
 
   def perform(user)
     feed = Instagram.user_recent_media(user.instagram_id)

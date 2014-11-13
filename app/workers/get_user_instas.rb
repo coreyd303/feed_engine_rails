@@ -3,9 +3,9 @@ class GetUserInstas
   attr_accessor :trip, :user
 
   def perform(user, trip)
-    @trip = trip
-    @user = user
-    feed = Instagram.get("https://api.instagram.com/v1/users/#{user.instagram_id}/media/recent", max_timestamp: max_time, min_timestamp: min_time)
+    @trip    = trip
+    @user    = user
+    feed     = Instagram.get("https://api.instagram.com/v1/users/#{user.instagram_id}/media/recent", max_timestamp: max_time, min_timestamp: min_time)
     feed_url = "https://api.instagram.com/v1/users/#{user.instagram_id}/media/recent/?max_timestamp=#{max_time}&min_timestamp=#{min_time}"
     save_instas(feed, user, trip)
   end

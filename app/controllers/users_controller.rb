@@ -7,8 +7,8 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
-    @trips = @user.trips
+    @user   = User.find(params[:id])
+    @trips  = @user.trips
     @client = Epicmix::Client.new(@user.epic_mix_username, 
                                   @user.epic_mix_password)
   end
@@ -18,7 +18,7 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.create!(user_params)
+    @user          = User.create!(user_params)
     flash[:notice] = "Your profile is totally legit!"
     redirect_to user_path(@user)
   end
@@ -60,6 +60,5 @@ private
                                  :epic_mix_username, 
                                  :epic_mix_password)
   end
-
 end
 

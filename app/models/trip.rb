@@ -1,8 +1,14 @@
 class Trip < ActiveRecord::Base
-  validates :name, :description, :date, :resort_id, presence: true
+  validates               :name, 
+                          :description, 
+                          :date, 
+                          :resort_id, presence: true
+  
   has_and_belongs_to_many :users
-  belongs_to :resort
-  has_many :instas
+  
+  belongs_to              :resort
+  
+  has_many                :instas
 
   belongs_to :owner, class_name: 'User'
 
