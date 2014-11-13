@@ -12,6 +12,8 @@ class CreateUsers < ActiveRecord::Migration
       t.string   :uid
       t.string   :provider
       t.timestamps
+      t.index    :uid
+      t.index    :instagram_id
     end
   end
 end

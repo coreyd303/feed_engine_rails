@@ -1,11 +1,11 @@
 <div class="jumbotron">
-  <p>Forcast.io</p>
-</div>
-
-<div class="jumbotron">
   <% if current_user %>
     <h2 class="site-text">Plan your trip!</h2>
     <%= render partial: "form" %>
+  <% else %>
+    <h3 class="site-text">Please sign in</h3>
+    <p class="site-txt-b">You will need to sign in if you would like to plan a trip<br/>
+    <%= link_to "Sign In with Twitter", "/auth/twitter", class: "center-btn btn btn-lg btn-info" %></p> 
   <% end %>
 </div>
 

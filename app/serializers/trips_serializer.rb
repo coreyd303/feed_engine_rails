@@ -6,5 +6,6 @@ class TripsSerializer < ActiveModel::Serializer
              :description,
              :trip_location,
              :date
+             
   has_many :users
 end
