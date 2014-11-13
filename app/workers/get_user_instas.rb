@@ -12,13 +12,13 @@ class GetUserInstas
 
   def save_instas(feed, user, trip)
     feed.each do |insta|
-      unless Insta.where("insta_url = #{insta['link']}")
-        Insta.create!(insta_id: insta['user']['id'].to_i,
+      unless Insta.all.any? { |i| i.insta_url == insta['link']}
+        Insta.new(insta_id: insta['user']['id'].to_i,
                       user_id: user.id,
                       trip_id: trip.id,
                       insta_url: insta['link'],
                       thumbnail_url: insta['images']['thumbnail']['url'],
-                      full_size_url: insta['images']['standard_resolution']['url'])
+                      full_size_url: insta['images']['standard_resolution']['url']).save!
       end
     end
   end
